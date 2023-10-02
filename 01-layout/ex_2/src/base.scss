@@ -1,0 +1,50 @@
+@use "theme_a" as *;
+//@use "theme_b" as *;
+
+body {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	align-items: center;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.box {
+	width: 120px;
+	height: 80px;
+	padding: 10px;
+	border: 1px solid gray;
+
+	border-radius: $border-radius;
+}
+
+.box-with-shadow {
+	box-shadow: $box-shadow;
+}
+
+.box-base {
+	background-color: $color-base;
+}
+
+.box-important {
+	background-color: $color-important;
+}
+
+.box-warning {
+	background-color: $color-warning;
+}
+
+.principal-font {
+	font-family: $font-family-principal;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.secondary-font {
+	font-family: $font-family-secondary;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}

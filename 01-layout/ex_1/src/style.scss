@@ -1,0 +1,204 @@
+$first-color: #F44336;
+$second-color: #3F51B5;
+$third-color: #4CAF50;
+$text-color: gray;
+$background-color-gradation-4: 20%;
+$background-color-gradation-3: 15%;
+$background-color-gradation-2: 10%;
+$background-color-gradation-1: 5%;
+$text-color-gradation-4: 60%;
+$text-color-gradation-3: 45%;
+$text-color-gradation-2: 30%;
+$text-color-gradation-1: 15%;
+
+body {
+	padding: 0;
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+}
+
+[class^="container-"] {
+	display: flex;
+	flex: 1;
+	width: 100%;
+	justify-content: center;
+	align-items: flex-start;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.box {
+	height: 50px;
+	padding: 7px;
+	margin: 3px;
+	border-radius: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin color-variations($container, $color, $text-color) {
+	#{$container} {
+	  & .darken-4 { background-color: darken($color, $background-color-gradation-4); color: darken($text-color, $text-color-gradation-4); }
+	  & .darken-3 { background-color: darken($color, $background-color-gradation-3); color: darken($text-color, $text-color-gradation-3); }
+	  & .darken-2 { background-color: darken($color, $background-color-gradation-2); color: darken($text-color, $text-color-gradation-2); }
+	  & .darken-1 { background-color: darken($color, $background-color-gradation-1); color: darken($text-color, $text-color-gradation-1); }
+	  & .base-color { background-color: $color; color: $text-color; }
+	  & .lighten-1 { background-color: lighten($color, $background-color-gradation-1); color: lighten($text-color, $text-color-gradation-1); }
+	  & .lighten-2 { background-color: lighten($color, $background-color-gradation-2); color: lighten($text-color, $text-color-gradation-2); }
+	  & .lighten-3 { background-color: lighten($color, $background-color-gradation-3); color: lighten($text-color, $text-color-gradation-3); }
+	  & .lighten-4 { background-color: lighten($color, $background-color-gradation-4); color: lighten($text-color, $text-color-gradation-4); }
+	}
+  }
+  
+  @include color-variations('.container-1', $first-color, $text-color);
+  @include color-variations('.container-2', $second-color, $text-color);
+  @include color-variations('.container-3', $third-color, $text-color);
+
+
+/*
+
+.container-1 {
+	& .darken-4 {
+		background-color: darken($first-color, $background-color-gradation-4);
+		color: darken($text-color, $text-color-gradation-4);
+	}
+
+	& .darken-3 {
+		background-color: darken($first-color, $background-color-gradation-3);
+		color: darken($text-color, $text-color-gradation-3);
+	}
+
+	& .darken-2 {
+		background-color: darken($first-color, $background-color-gradation-2);
+		color: darken($text-color, $text-color-gradation-2);
+	}
+
+	& .darken-1 {
+		background-color: darken($first-color, $background-color-gradation-1);
+		color: darken($text-color, $text-color-gradation-1);
+	}
+
+	& .base-color{
+		background-color: $first-color;
+		color: $text-color
+	}
+
+	& .lighten-1 {
+		background-color: lighten($first-color, $background-color-gradation-1);
+		color: lighten($text-color, $text-color-gradation-1);
+	}
+
+	& .lighten-2 {
+		background-color: lighten($first-color, $background-color-gradation-2);
+		color: lighten($text-color, $text-color-gradation-2);
+	}
+
+	& .lighten-3 {
+		background-color: lighten($first-color, $background-color-gradation-3);
+		color: lighten($text-color, $text-color-gradation-3);
+	}
+
+	& .lighten-4 {
+		background-color: lighten($first-color, $background-color-gradation-4);
+		color: lighten($text-color, $text-color-gradation-4);
+	}
+}
+
+.container-2 {
+	& .darken-4 {
+		background-color: darken($second-color, $background-color-gradation-4);
+		color: darken($text-color, $text-color-gradation-4);
+	}
+
+	& .darken-3 {
+		background-color: darken($second-color, $background-color-gradation-3);
+		color: darken($text-color, $text-color-gradation-3);
+	}
+
+	& .darken-2 {
+		background-color: darken($second-color, $background-color-gradation-2);
+		color: darken($text-color, $text-color-gradation-2);
+	}
+
+	& .darken-1 {
+		background-color: darken($second-color, $background-color-gradation-1);
+		color: darken($text-color, $text-color-gradation-1);
+	}
+
+	& .base-color{
+		background-color: $second-color;
+		color: $text-color
+	}
+
+	& .lighten-1 {
+		background-color: lighten($second-color, $background-color-gradation-1);
+		color: lighten($text-color, $text-color-gradation-1);
+	}
+
+	& .lighten-2 {
+		background-color: lighten($second-color, $background-color-gradation-2);
+		color: lighten($text-color, $text-color-gradation-2);
+	}
+
+	& .lighten-3 {
+		background-color: lighten($second-color, $background-color-gradation-3);
+		color: lighten($text-color, $text-color-gradation-3);
+	}
+
+	& .lighten-4 {
+		background-color: lighten($second-color, $background-color-gradation-4);
+		color: lighten($text-color, $text-color-gradation-4);
+	}
+}
+
+.container-3 {
+	& .darken-4 {
+		background-color: darken($third-color, $background-color-gradation-4);
+		color: darken($text-color, $text-color-gradation-4);
+	}
+
+	& .darken-3 {
+		background-color: darken($third-color, $background-color-gradation-3);
+		color: darken($text-color, $text-color-gradation-3);
+	}
+
+	& .darken-2 {
+		background-color: darken($third-color, $background-color-gradation-2);
+		color: darken($text-color, $text-color-gradation-2);
+	}
+
+	& .darken-1 {
+		background-color: darken($third-color, $background-color-gradation-1);
+		color: darken($text-color, $text-color-gradation-1);
+	}
+
+	& .base-color{
+		background-color: $third-color;
+		color: $text-color
+	}
+
+	& .lighten-1 {
+		background-color: lighten($third-color, $background-color-gradation-1);
+		color: lighten($text-color, $text-color-gradation-1);
+	}
+
+	& .lighten-2 {
+		background-color: lighten($third-color, $background-color-gradation-2);
+		color: lighten($text-color, $text-color-gradation-2);
+	}
+
+	& .lighten-3 {
+		background-color: lighten($third-color, $background-color-gradation-3);
+		color: lighten($text-color, $text-color-gradation-3);
+	}
+
+	& .lighten-4 {
+		background-color: lighten($third-color, $background-color-gradation-4);
+		color: lighten($text-color, $text-color-gradation-4);
+	}
+}
+
+*/
