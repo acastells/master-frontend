@@ -2,14 +2,8 @@ $first-color: #F44336;
 $second-color: #3F51B5;
 $third-color: #4CAF50;
 $text-color: gray;
-$background-color-gradation-4: 20%;
-$background-color-gradation-3: 15%;
-$background-color-gradation-2: 10%;
-$background-color-gradation-1: 5%;
-$text-color-gradation-4: 60%;
-$text-color-gradation-3: 45%;
-$text-color-gradation-2: 30%;
-$text-color-gradation-1: 15%;
+$background-color-variation: 6%;
+$text-color-variation: 12%;
 
 body {
 	padding: 0;
@@ -30,29 +24,39 @@ body {
 }
 
 .box {
-	height: 50px;
-	padding: 7px;
-	margin: 3px;
+	height: 64px;
+	padding: 8px;
+	margin: 4px;
 	border-radius: 4px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-@mixin color-variations($container, $color, $text-color) {
+@mixin color-variations($container, $color) {
 	#{$container} {
-	  & .darken-4 { background-color: darken($color, $background-color-gradation-4); color: darken($text-color, $text-color-gradation-4); }
-	  & .darken-3 { background-color: darken($color, $background-color-gradation-3); color: darken($text-color, $text-color-gradation-3); }
-	  & .darken-2 { background-color: darken($color, $background-color-gradation-2); color: darken($text-color, $text-color-gradation-2); }
-	  & .darken-1 { background-color: darken($color, $background-color-gradation-1); color: darken($text-color, $text-color-gradation-1); }
-	  & .base-color { background-color: $color; color: $text-color; }
-	  & .lighten-1 { background-color: lighten($color, $background-color-gradation-1); color: lighten($text-color, $text-color-gradation-1); }
-	  & .lighten-2 { background-color: lighten($color, $background-color-gradation-2); color: lighten($text-color, $text-color-gradation-2); }
-	  & .lighten-3 { background-color: lighten($color, $background-color-gradation-3); color: lighten($text-color, $text-color-gradation-3); }
-	  & .lighten-4 { background-color: lighten($color, $background-color-gradation-4); color: lighten($text-color, $text-color-gradation-4); }
+		@for $i from 4 through 1 {
+			& .darken-#{$i} {
+				background-color: darken($color, $background-color-variation*$i);
+				color: darken($text-color, $text-color-variation*$i);
+			}
+		}
+
+		& .base-color {
+			background-color: $color;
+			color: $text-color;
+		}
+
+
+		@for $i from 1 through 4 {
+			& .lighten-#{$i} {
+				background-color: lighten($color, $background-color-variation*$i);
+				color: lighten($text-color, $text-color-variation*$i);
+			}
+		}
 	}
 }
-  
-@include color-variations('.container-1', $first-color, $text-color);
-@include color-variations('.container-2', $second-color, $text-color);
-@include color-variations('.container-3', $third-color, $text-color);
+
+@include color-variations('.container-1', $first-color);
+@include color-variations('.container-2', $second-color);
+@include color-variations('.container-3', $third-color);
