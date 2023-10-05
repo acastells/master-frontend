@@ -17,34 +17,40 @@ body {
 	height: 80px;
 	padding: 10px;
 	border: 1px solid gray;
-
 	border-radius: $border-radius;
 }
 
-.box-with-shadow {
-	box-shadow: $box-shadow;
-}
-
 .box-base {
+	@extend .box;
 	background-color: $color-base;
 }
 
 .box-important {
+	@extend .box;
 	background-color: $color-important;
 }
 
 .box-warning {
+	@extend .box;
 	background-color: $color-warning;
 }
 
-.principal-font {
-	font-family: $font-family-principal;
+.box-with-shadow {
+	@extend .box;
+	box-shadow: $box-shadow;
+}
+
+.font {
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
 
+.principal-font {
+	@extend .font;
+	font-family: $font-family-principal;
+}
+
 .secondary-font {
+	@extend .font;
 	font-family: $font-family-secondary;
-	margin-top: 20px;
-	margin-bottom: 20px;
 }
