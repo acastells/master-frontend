@@ -51,11 +51,11 @@ body {
 	  & .lighten-3 { background-color: lighten($color, $background-color-gradation-3); color: lighten($text-color, $text-color-gradation-3); }
 	  & .lighten-4 { background-color: lighten($color, $background-color-gradation-4); color: lighten($text-color, $text-color-gradation-4); }
 	}
-  }
+}
   
-  @include color-variations('.container-1', $first-color, $text-color);
-  @include color-variations('.container-2', $second-color, $text-color);
-  @include color-variations('.container-3', $third-color, $text-color);
+@include color-variations('.container-1', $first-color, $text-color);
+@include color-variations('.container-2', $second-color, $text-color);
+@include color-variations('.container-3', $third-color, $text-color);
 
 
 /*
