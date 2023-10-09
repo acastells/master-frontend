@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Jost:400,500,700');
+
+body {
+	margin: 0;
+	padding: 24px;
+	width: 100vw;
+	font-family: 'Jost';
+	box-sizing: border-box;
+	background-color: #141414;
+	color: white;
+	display: flex;
+	flex-direction: column;
+
+	overflow-x: hidden // Hiding x scroll as it'ss showing when scaling an image
+}
+
+main {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 100%;
+}
+
+
+#top-text {
+	font-weight: bold;
+	font-size: 24px;
+	font-style: italic;
+	content: "5"
+}
+
+#top-text::before {
+	content: "5";
+}
+
+section {
+	flex: 1;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center; // when hovered alignment keeps on center
+	align-content: flex-start;
+	gap: 4px;
+
+	& div {
+		flex: 1;
+	}
+}
+
+
+.top {
+	& div {
+		flex: 1;
+		flex-basis: 225px;
+	}
+}
+
+.first {
+	& div {
+		flex: 1;
+		flex-basis: 250px;
+	}
+}
+
+.second {
+	& div {
+		flex: 1;
+		flex-basis: 250px;
+	}
+}
+
+img {
+	width: 100%;
+}
+
+
+.top-item:hover,
+.item:hover {
+	transform: scale(1.25);
+}
+
+
+@media screen and (max-width:1200px) {
+	#top-text::before {
+		content: "3";
+	}
+
+	.top .top-item:nth-child(4) {
+		display: none;
+	}
+
+	.top .top-item:nth-child(5) {
+		display: none;
+	}
+
+	.platform-title {
+		display: none;
+	}
+}
