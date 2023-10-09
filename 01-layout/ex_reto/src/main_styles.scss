@@ -38,15 +38,17 @@ section {
 	flex: 1;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-content: flex-start;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
 	gap: 4px;
 	padding: 8px 0 24px
 }
 
 .item,
 .top-item {
-	flex: 1
+	flex: 1;
+	max-width: 50%;
 }
 
 .top-item {
