@@ -1,0 +1,1 @@
+Para cambiar de un theme al otro, podemos comentar y descomentar las primeras líneas del base.scss que los importan.
