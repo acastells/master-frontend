@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Jost:400,500,700');
 
+$background-platform-color:#141414;
+
 body {
 	margin: 0;
 	padding: 24px;
 	width: 100vw;
-	font-family: 'Jost';
+	font: 400 24px "Jost";
 	box-sizing: border-box;
-	background-color: #141414;
+	background-color: $background-platform-color;
 	color: white;
 	display: flex;
 	flex-direction: column;
-
 	overflow-x: hidden // Hiding x scroll as it'ss showing when scaling an image
 }
 
@@ -21,7 +22,6 @@ main {
 	justify-content: flex-start;
 	width: 100%;
 }
-
 
 #top-text {
 	font-weight: bold;
@@ -39,35 +39,27 @@ section {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	align-items: center; // when hovered alignment keeps on center
 	align-content: flex-start;
 	gap: 4px;
-
-	& div {
-		flex: 1;
-	}
+	padding: 8px 0 24px
 }
 
-
-.top {
-	& div {
-		flex: 1;
-		flex-basis: 225px;
-	}
+.item,
+.top-item {
+	flex: 1
 }
 
-.first {
-	& div {
-		flex: 1;
-		flex-basis: 250px;
-	}
+.top-item {
+	flex-basis: 225px;
 }
 
-.second {
-	& div {
-		flex: 1;
-		flex-basis: 250px;
-	}
+.item {
+	flex-basis: 250px;
+}
+
+.top-item:hover,
+.item:hover {
+	transform: scale(1.25);
 }
 
 img {
@@ -75,26 +67,21 @@ img {
 }
 
 
-.top-item:hover,
-.item:hover {
-	transform: scale(1.25);
-}
-
-
 @media screen and (max-width:1200px) {
+	body {
+		padding: 8px;
+	}
+
+	.platform-title {
+		display: none;
+	}
+
 	#top-text::before {
 		content: "3";
 	}
 
-	.top .top-item:nth-child(4) {
-		display: none;
-	}
-
+	.top .top-item:nth-child(4),
 	.top .top-item:nth-child(5) {
-		display: none;
-	}
-
-	.platform-title {
 		display: none;
 	}
 }

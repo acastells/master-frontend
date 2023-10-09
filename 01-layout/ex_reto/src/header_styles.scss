@@ -1,8 +1,11 @@
+@use "main_styles" as *;
+
 header {
 	display: flex;
 	align-items: center;
-	padding-bottom: 24px;
+	padding-bottom: 32px;
 	width: 100%;
+	font-size: 24px
 }
 
 .header-logo {
@@ -10,6 +13,7 @@ header {
 	align-items: center;
 
 	& .platform-title {
+		padding: 0 16px 0;
 		font-size: 32px;
 		white-space: nowrap;
 	}
@@ -19,22 +23,20 @@ header {
 	display: flex;
 	justify-content: flex-end;
 	flex: 1;
-	gap: 24px;
+	gap: 16px;
 
 	& div {
-		padding: 24px;
+		padding: 16px;
 		border-radius: 8px;
 
 		&:hover {
 			background-color: white;
-			color: #141414
+			color: $background-platform-color
 		}
 	}
 }
 
-
-
-
+// CUSTOM SCROLLBAR
 ::-webkit-scrollbar {
 	width: 8px;
 }
@@ -44,9 +46,9 @@ header {
 }
 
 ::-webkit-scrollbar-thumb {
-	background: lighten(#141414, 10%);
+	background: lighten($background-platform-color, 10%);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: lighten(#141414, 10%);
+	background: lighten($background-platform-color, 10%);
 }
