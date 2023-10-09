@@ -11,6 +11,6 @@
   "devDependencies": {
     "cssnano": "^4.1.10",
     "sass": "^1.26.5",
-    "transformer-sass": "^2.9.3"
+    "@parcel/transformer-sass": "^2.9.3"
   }
 }
