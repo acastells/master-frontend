@@ -33,7 +33,7 @@ header {
 }
 
 @media screen and (width<768px) {
-	.toolbar {
+	header .toolbar {
 		display: none;
 	}
 }
