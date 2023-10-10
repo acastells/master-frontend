@@ -24,9 +24,10 @@ ul {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
+	width: 100%;
 
 	& li {
-		padding: 16px;
+		padding: 8px 16px 8px;
 		background-color: $tertiary-color;
 		border-bottom: 2px solid #e6e7d5;
 		border-right: 2px solid #e6e7d5;
@@ -34,6 +35,34 @@ ul {
 
 		&:hover {
 			background-color: darken($tertiary-color, 10%);
+		}
+	}
+}
+
+@media screen and (width<768px) {
+	nav .menu-container .menu-title {
+		display: none;
+	}
+
+	nav {
+		width: 100%;
+
+		& .menu-container {
+			display: flex;
+			flex-direction: row;
+		}
+	}
+
+	ul {
+		display: flex;
+		justify-content: space-evenly;
+		padding: 8px 16px 8px;
+		gap: 16px;
+
+		& li {
+			flex: 1;
+			display: flex;
+			justify-content: center;
 		}
 	}
 }
