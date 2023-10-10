@@ -33,6 +33,12 @@ input {
 }
 
 
+@media screen and (width<768px) {
+	.toolbar {
+		display: none;
+	}
+}
+
 // CUSTOM SCROLLBAR
 ::-webkit-scrollbar {
 	width: 8px;
