@@ -7,8 +7,7 @@ nav {
 
 	.menu-container {
 		position: sticky;
-		left: 0;
-		top: 0;
+		top: 0px;
 
 		.menu-title {
 			color: white;
@@ -42,6 +41,8 @@ nav {
 @media screen and (width<768px) {
 	nav {
 		width: 100%;
+		position: sticky;
+		top: 0px;
 
 		.menu-container {
 			display: flex;
