@@ -27,19 +27,12 @@ header {
 	grid-area: header
 }
 
-.page-container {
-	display: flex;
+nav {
+	grid-area: nav;
+}
 
-	nav {
-		grid-area: nav;
-		width: 256px;
-		height: 100%;
-	}
-
-	main {
-		grid-area: main;
-		flex: 1
-	}
+main {
+	grid-area: main;
 }
 
 footer {
@@ -48,9 +41,12 @@ footer {
 
 // END GRID-AREAS
 
-
+.page-container{
+	display: flex;
+}
 
 main {
+	flex: 1;
 	background-color: $background-color;
 
 	.list {
