@@ -44,10 +44,10 @@ header {
 }
 
 ::-webkit-scrollbar-track {
-	background: lighten($background-color, 10%);
+	background: $secondary-color
 }
 
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb:hover {
-	background: darken(white, 50%);
+	background: lighten($secondary-color,25%);
 }
