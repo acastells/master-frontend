@@ -3,64 +3,64 @@
 nav {
 	background-color: $secondary-color;
 
-	& .menu-container {
+	.menu-container {
 		position: sticky;
 		left: 0;
 		top: 0;
 
-		& .menu-title {
+		.menu-title {
 			color: white;
 			text-transform: uppercase;
 			text-align: center;
 			padding: 16px;
 			font-weight: bold;
 		}
-	}
-}
 
-ul {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-	width: 100%;
+		ul {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+			width: 100%;
 
-	& li {
-		padding: 8px 16px 8px;
-		background-color: $tertiary-color;
-		border-bottom: 2px solid #e6e7d5;
-		border-right: 2px solid #e6e7d5;
-		cursor: pointer;
+			li {
+				padding: 8px 16px;
+				background-color: $tertiary-color;
+				border-bottom: 2px solid #e6e7d5;
+				border-right: 2px solid #e6e7d5;
+				cursor: pointer;
 
-		&:hover {
-			background-color: darken($tertiary-color, 10%);
+				&:hover {
+					background-color: darken($tertiary-color, 10%);
+				}
+			}
 		}
 	}
 }
 
 @media screen and (width<768px) {
-	nav .menu-container .menu-title {
-		display: none;
-	}
-
 	nav {
 		width: 100%;
 
-		& .menu-container {
+		.menu-container {
 			display: flex;
 			flex-direction: row;
-		}
-	}
 
-	ul {
-		display: flex;
-		justify-content: space-evenly;
-		padding: 8px 16px 8px;
-		gap: 16px;
+			.menu-title {
+				display: none;
+			}
 
-		& li {
-			flex: 1;
-			display: flex;
-			justify-content: center;
+			ul {
+				display: flex;
+				justify-content: space-evenly;
+				padding: 8px 16px;
+				gap: 16px;
+
+				li {
+					flex: 1;
+					display: flex;
+					justify-content: center;
+				}
+			}
 		}
 	}
 }
