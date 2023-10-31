@@ -1,8 +1,25 @@
+# custom
 notes.md
 *notes*
 
-dist/
-
-package-lock.json
-node_modules
+# Parcel
 .parcel-cache
+
+# Aux folders & files
+.vscode/
+.idea/
+.DS_Store
+desktop.ini
+*.log
+*.orig
+*/src/**/*.js.map
+
+# NPM & Yarn
+node_modules
+yarn.lock
+package-lock.json
+
+# Output artifacts
+build/
+transpiled/
+dist/
