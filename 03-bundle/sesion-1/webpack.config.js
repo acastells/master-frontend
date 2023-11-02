@@ -1,5 +1,6 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import CopyPlugin from "copy-webpack-plugin";
 import path from "node:path";
 import url from "node:url";
 
@@ -30,11 +31,22 @@ export default {
         test: /\.css$/,
         include: /node_modules/,
         use: [MiniCssExtractPlugin.loader, "css-loader"]
+      },
+      {
+        test: /\.(png|jpg|jpeg)$/,
+        type: "asset/resource"
+      },
+      {
+        test: /\.html$/,
+        use: "html-loader"
       }
     ],
   },
   devServer: {
     port: 8080,
+    static: {
+      directory: path.join(__dirname, "src")
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -43,7 +55,15 @@ export default {
       scriptLoading: "blocking"
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].[chunkhash].css"
+      filename: "[name].[chunkhash].css",
+      chunkFilename: "[id].css"
+    }),
+    /*
+    new CopyPlugin({
+      patterns: [
+        { from: "content", to: "content" }
+      ]
     })
+    */
   ],
 };
