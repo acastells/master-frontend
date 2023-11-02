@@ -30,7 +30,10 @@ export default {
         exclude: /node_modules/,
         use: [MiniCssExtractPlugin.loader, {
           loader: "css-loader", options: {
-            modules: true
+            modules: {
+              exportLocalsConvention: "camelCase",
+              localIdentName: "[path][name]__[local]--[hash:base64:5]"
+            }
           }
         }, "sass-loader"],
       },
