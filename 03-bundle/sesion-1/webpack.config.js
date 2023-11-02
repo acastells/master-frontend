@@ -1,11 +1,19 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import path from "node:path";
 import url from "node:url";
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 export default {
-  entry: ["./src/students.js", "./src/styles.css"],
+  context: path.resolve(__dirname, "src"),
+  entry: {
+    app: "./index.js",
+  },
+  output: {
+    filename: "[name].[chunkhash].js",
+    clean: true
+  },
   module: {
     rules: [
       {
@@ -13,11 +21,16 @@ export default {
         exclude: /node_modules/,
         loader: "babel-loader",
       },
-	  {
-		test: /\.css$/,
-		exclude: /node_modules/,
-		use: ["style-loader", "css-loader"]
-	  }
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.css$/,
+        include: /node_modules/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
+      }
     ],
   },
   devServer: {
@@ -25,10 +38,12 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./index.html",
       filename: "index.html",
-      scriptLoading: "blocking",
-      hash: true,
+      scriptLoading: "blocking"
     }),
+    new MiniCssExtractPlugin({
+      filename: "[name].[chunkhash].css"
+    })
   ],
 };

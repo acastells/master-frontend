@@ -1,3 +1,5 @@
+import "./styles.scss";
+import 'bootstrap/dist/css/bootstrap.min.css';
 // ES6
 const userName = "Arnau";
 const greetings = `Hello ${userName}`;
