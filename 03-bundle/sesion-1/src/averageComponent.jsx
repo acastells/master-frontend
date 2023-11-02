@@ -10,7 +10,7 @@ export const AverageComponent = () => {
   }, []);
 
   return (
-    <div>
+    <div className="red-background">
       <span>Students average: {average}</span>
     </div>
   );
