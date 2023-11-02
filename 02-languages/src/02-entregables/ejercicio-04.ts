@@ -6,7 +6,7 @@ interface Book {
 	isRead: boolean
 }
 
-function isBookRead(books: Array<Book>, titleToSearch: string) {
+function isBookRead(books: Array<Book>, titleToSearch: string) : boolean {
 	let result = books.filter((book) => book.title === titleToSearch && book.isRead === true);
 	return result.length > 0
 }
