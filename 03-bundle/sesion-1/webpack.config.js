@@ -55,6 +55,9 @@ export default {
   devtool: "eval-source-map",
   devServer: {
     port: 8080,
+    devMiddleware: {
+      stats: "errors-only"
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
