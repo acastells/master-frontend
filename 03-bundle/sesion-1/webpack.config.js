@@ -52,6 +52,7 @@ export default {
       },
     ],
   },
+  devtool: "eval-source-map",
   devServer: {
     port: 8080,
   },

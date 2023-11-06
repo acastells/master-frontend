@@ -11,8 +11,10 @@ export const AverageComponent = () => {
   }, []);
 
   return (
-    <div className={classes["result-background"]}>
-      <span>Students average: {average}</span>
+    <div className="averageComponent">
+      <div className={classes.resultBackground}>
+        <span>Students average: {average}</span>
+      </div>
     </div>
   );
 };
