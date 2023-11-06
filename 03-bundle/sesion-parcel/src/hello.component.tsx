@@ -1,7 +1,8 @@
 import React from "react"
+import * as classes from "./hello.module.css"
 
 export const HelloComponent: React.FC = () => {
 	return (
-		<h1>Hellooo from React</h1>
+		<h1 className={classes.background}>Hellooo from React</h1>
 	)
 }
