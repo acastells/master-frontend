@@ -4,6 +4,10 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 export default merge(common, {
   mode: "production",
+  output: {
+    filename: "js/[name].[chunkhash].js",
+    assetModuleFilename: "assets/[hash][ext][query]"
+  },
   module: {
     rules: [
       {
@@ -26,7 +30,7 @@ export default merge(common, {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: "css/[name].[chunkhash].css",
       chunkFilename: "[id].css",
     }),
   ],
