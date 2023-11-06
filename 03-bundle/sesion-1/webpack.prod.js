@@ -1,5 +1,6 @@
 import { merge } from "webpack-merge";
 import common from "./webpack.common.js";
+import Dotenv from "dotenv-webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 export default merge(common, {
@@ -33,5 +34,8 @@ export default merge(common, {
       filename: "css/[name].[chunkhash].css",
       chunkFilename: "[id].css",
     }),
+    new Dotenv({
+      path: "./prod.env"
+    })
   ],
 });
