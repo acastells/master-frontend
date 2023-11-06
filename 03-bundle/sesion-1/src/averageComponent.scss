@@ -1,9 +1,9 @@
-$color: red;
+$back-color: teal;
 
 .result-background {
-	background-color: $color;
+  background-color: $back-color;
 }
 
-img {
-	width: 200px;
+.container {
+  border: 1px solid black;
 }

@@ -1,9 +1,18 @@
-export function getAvg(scores: number[]) {
-	return getTotalScore(scores) / scores.length;
+function getAvg(scores) {
+  return getTotalScore(scores) / scores.length;
 }
 
-export function getTotalScore(scores: number[]) {
-	return scores.reduce((score, count) => score + count)
+export function getTotalScore(scores) {
+  return scores.reduce((score, count) => score + count);
 }
 
-console.log(`Api base: ${process.env.API_BASE}`)
+const average: number = 2;
+
+// const API_BASE = "http://myapp.com";
+// const API_BASE = "http://localhost:3000";
+
+//   fetch(`${API_BASE}/api/users`);
+
+console.log(`Api base: ${process.env.API_BASE}`);
+
+export default getAvg;
