@@ -1,5 +1,4 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 import path from "node:path";
 import url from "node:url";
@@ -26,23 +25,6 @@ export default {
         loader: "babel-loader",
       },
       {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        use: [MiniCssExtractPlugin.loader, {
-          loader: "css-loader", options: {
-            modules: {
-              exportLocalsConvention: "camelCase",
-              localIdentName: "[path][name]__[local]--[hash:base64:5]"
-            }
-          }
-        }, "sass-loader"],
-      },
-      {
-        test: /\.css$/,
-        include: /node_modules/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
-      },
-      {
         test: /\.(png|jpg|jpeg)$/,
         type: "asset/resource",
       },
@@ -52,22 +34,11 @@ export default {
       },
     ],
   },
-  devtool: "eval-source-map",
-  devServer: {
-    port: 8080,
-    devMiddleware: {
-      stats: "errors-only"
-    }
-  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./index.html",
       filename: "index.html",
       scriptLoading: "blocking",
-    }),
-    new MiniCssExtractPlugin({
-      filename: "[name].[chunkhash].css",
-      chunkFilename: "[id].css",
     }),
   ],
 };

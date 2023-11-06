@@ -14,7 +14,7 @@
 	},
 	"include": [
 		"src/**/*"
-	],
+, "webpack.dev.js", "webpack.common.js"	],
 	"exclude": [
 		"node_modules"
 	]
