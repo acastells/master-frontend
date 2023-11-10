@@ -7,6 +7,7 @@ export default defineConfig({
 		checker({ typescript: true })
 	],
 	build: {
+		sourcemap: true,
 		rollupOptions: {
 			plugins: [
 				typescript({ tsconfig: "tsconfig.json", noEmitOnError: true, sourceMap: true })
