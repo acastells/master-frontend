@@ -6,6 +6,7 @@
 			"ESNext",
 			"DOM"
 		],
+		"jsx": "react-jsx",
 		"module": "ESNext",
 		"moduleResolution": "Node",
 		"noEmit": true,
