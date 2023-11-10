@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "type-check": "tsc",
     "start": "vite serve",
+    "prebuild": "tsc --noEmit",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -12,9 +14,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.5",
     "sass": "^1.69.5",
+    "tslib": "^2.6.2",
     "typescript": "^5.2.2",
-    "vite": "^4.5.0"
+    "vite": "^4.5.0",
+    "vite-plugin-checker": "^0.6.2"
   },
   "dependencies": {
     "bootstrap": "^5.3.2"
