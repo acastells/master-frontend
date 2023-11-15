@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Web Components</h1>
+    <p>Custom Element</p>
+
+    <!-- <search-bar></search-bar>
+    <br> -->
+    <search-bar id="searchbar" ph="buscar..."></search-bar>
+
+    <!-- This <button> is a fancy button. -->
+    <!-- <div is="search-bar"></div> -->
+
+    <script src="./searchbar.js"></script>
+    <script>
+      const searchbar = document.getElementById("searchbar");
+      searchbar.addEventListener("myEvent", (event) => {
+        console.log("Event listened!", event);
+      });
+
+      searchbar.addEventListener('myEvent2', (event) => {
+        console.log("Event listened!", event);
+      });
+    </script>
+  </body>
+</html>
