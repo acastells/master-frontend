@@ -1,0 +1,13 @@
+{
+	"name": "bundler-playground",
+	"scripts": {
+		"start": "vite --open"
+	},
+	"type": "module",
+	"dependencies": {
+		"my-lib": "file:../../my-lib"
+	},
+	"devDependencies": {
+		"vite": "^4.5.0"
+	}
+}
