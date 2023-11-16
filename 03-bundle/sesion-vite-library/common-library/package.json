@@ -1,0 +1,23 @@
+{
+  "name": "@lemoncode/common-library",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "vite build && npm run build:types",
+    "build:types": "tsc --emitDeclarationOnly --declaration"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0"
+  },
+  "main": "./dist/common-library.umd.cjs",
+  "module": "./dist/common-library.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/common-library.umd.cjs",
+      "import": "./dist/common-library.js",
+      "types": "./dist/index.d.ts"
+    }
+  }
+}
