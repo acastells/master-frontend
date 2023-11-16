@@ -1,2 +1,2 @@
-const { myFn } = require("my-lib/dist/index.umd")
+const { myFn } = require("my-lib/umd")
 myFn()
