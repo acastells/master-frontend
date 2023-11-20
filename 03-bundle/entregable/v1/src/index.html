@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Webpack v1 Entregable</title>
+</head>
+
+<body>
+  <h3>Webpack v1 Entregable</h3>
+
+  <h4>Basic</h4>
+  <div class="card-container">
+    <div class="card">
+      <b>Basic Bundling con webpack, babel y dev-server</b>
+      <p>npm init -y (iniciar proyecto)</p>
+      <p>npm install --save-dev:</p>
+      <ul>
+        <li>webpack webpack-cli</li>
+        <li>@babel/cli @babel/core @babel/preset-env</li>
+        <li>babel-loader</li>
+        <li>webpack-dev-server</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <b>Imágenes</b>
+      <p>instalando html-webpack-plugin (para usarlas directamente en el html): 
+      <code>img src="./content/image1.jpg" alt="image1"</code></p>
+      <img src="./content/image1.jpg" alt="image1">
+      <p>configurando "asset/resource" en webpack.config.js (para poder importarlas y usarlas en JS/TS, creando elemento + appendChild) <code>div id="imgContainer"</code></p>
+      <div id="imgContainer"></div>
+    </div>
+
+    <div class="card">
+      <b>Typescript</b>
+      <p>typescript + preset typescript de babel (.babelrc) + npm-run-all en script de package.json para comprobar tipado (tsc) y hacer serve (webpack serve) en paralelo</p>
+      <p>npm install --save-dev:</p>
+      <ul>
+        <li>typescript</li>
+        <li>@babel/preset-typescript</li>
+        <li>npm-run-all</li>
+      </ul>
+      <b>numbers:</b><div id="numbersTS"></div>
+      <b>avg:</b><div id="avgTS"></div>
+      <b>total:</b><div id="totalTS"></div>
+    </div>
+
+    <div class="card">
+      <b>Styles y SASS</b>
+      <p>usando MiniCssExtractPlugin.loader, "css-loader", "sass-loader" en config de webpack</p>
+      <p>npm install --save-dev:</p>
+      <ul>
+        <li>style-loader css-loader</li>
+        <li>mini-css-extract-plugin</li>
+        <li>sass sass-loader</li>
+      </ul>
+      <div class="red-background">Red background stuff with SASS</div>
+    </div>
+
+
+
+  </div>
+
+  <h4>Opcional</h4>
+  <div class="card-container">
+    <div class="card">
+      <b>React</b>
+      <p>npm install react react-dom --save</p>
+      <p>npm install @babel/preset-react --save-dev</p>
+      <p>cambios en entrypoint y extensions</p>
+      <code>div id=root</code> 
+      <p>-> React app start here </p>
+      <div id="root"></div>
+      <p>React app ends here -></p>
+    </div>
+
+
+    <div class="card">
+      <b>Version de build de produccion</b>
+      <p>Borramos "webpack.config.js" y movemos las configuraciones a "webpack.common.js "webpack.dev.js" y "webpack.prod.js"</p>
+      <p>Utilizamos "webpack-merge" para partir del common</p>
+      <p>Actualizamos package.json</p>
+    </div>
+
+
+    <div class="card">
+      <b>Env vars en dev y prod</b>
+      <p>npm install dotenv-webpack --save-dev</p>
+      <p>Creamos ficheros .env para dev y prod</p>
+      <p>Configuramos webpack y package.json para utilizar el plugin Dotenv</p>
+
+      <p>Estamos en modo: <b id="webpack_mode"></b></p>
+      <p>y el valor de SECRET_KEY es: <b id="webpack_env_secret_key"></b></p>
+    </div>
+
+
+    <div class="card">
+      <b>Bundle analyzer</b>
+
+      <p>npm install webpack-bundle-analyzer --save-dev</p>
+      <p>webpack.perf.js</p>
+      <p>Actualizamos el package.json</p>
+      <p>Agregamos configuración a webpack.prod.js para que cree una carpeta llamada vendor y dentro de ella cree un bundle para cada librería de terceros.</p>
+      <p>Para ver el resultado del bundle analyzer ejecutar <b>npm run build:perf</b></p>
+
+    </div>
+
+  </div>
+</body>
+
+</html>
