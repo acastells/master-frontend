@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Parcel v2 Entregable</title>
+</head>
+
+<body>
+	<h3>Parcel v2 Entregable</h3>
+
+
+	<h4>Basic</h4>
+
+	<div class="card-container">
+		<div class="card">
+			<b>Basic Bundling con parcel</b>
+			<p>Iniciar proyecto</p>
+			<code>npm init -y</code>
+			<code>npm install parcel --save-dev</code>
+			<p>actualizar package.json para usar parcel</p>
+			<code>npm install rimraf --save-dev</code>
+			<p>se puede usar rimraf para borrar la carpeta dist antes de hacer la build</p>
+		</div>
+
+		<div class="card">
+			<b>Imágenes</b>
+			<p>A diferencia de webpack, no tenemos que instalar ninguna dependencia extra</p>
+			<p>Parcel analiza los imports en los ficheros JS/TS:</p>
+			<code>div id="imgContainer" + appendChild</code>
+			<div id="imgContainer"></div>
+			<p>También analiza los ficheros HTML directamente</p>
+			<code>img src="./content/image1.jpg" alt="image1"</code>
+			<img src="./content/image1.jpg" alt="image1">
+		</div>
+
+		<div class="card">
+			<b>Typescript</b>
+			<p>Instalamos typescript como dependencia de desarollo</p>
+			<code>npm install typescript --save-dev</code>
+			<p>Configuramos fichero tsconfig.json</p>
+			<p>Podemos instalar npm-run-all para servir y comprovar el tipado al mismo tiempo</p>
+			<code>npm install npm-run-all --save-dev</code>
+			<p>package.json scripts:</p>
+			<code>"start": "run-p -l type-check:watch start:dev"</code>
+			<code>"start:dev": "rimraf dist && parcel --open"</code>
+			<code>"type-check:watch": "npm run type-check -- --watch"</code>
+			<p>The result of 2 + 3 is = <b id="ts_result"></b></p>
+		</div>
+
+
+		<div class="card">
+			<b>Styles y SASS</b>
+			<p>Basta con importar el fichero de estilos en el index.ts o similares</p>
+			<code>div class="background"</code>
+			<div class="background">RedBackground stuff</div>
+			<p>Se ha configurado CSS Modules en ".postcssrc"</p>
+			<code>npm install postcss-modules --save-dev</code>
+			<p>Podemos utilizamos la sintaxis "global:" si es necesario</p>
+			<p>y los imports de forma adecuada para separar estilos con mismos nombres</p>
+			<code>document.getElementById("otherStylesStuff").className = styleClasses.background;</code>
+			<div id="otherStylesStuff" class="">OtherStyles stuff</div>
+		</div>
+
+
+	</div>
+
+
+	<h4>Opcional</h4>
+
+	<div class="card-container">
+		<div class="card">
+			<b>React</b>
+			<p>instalación como en webpack. Sin configuración adicional.</p>
+			<code>npm install react react-dom --save</code>
+			<code>npm install @types/react @types/react-dom</code>
+			<code>div id=root</code>
+			<p>-> React app start here </p>
+			<div id="root"></div>
+			<p>React app ends here -></p>
+		</div>
+
+		<div class="card">
+			<b>Version de build de produccion</b>
+			<p>Parcel’s production mode automatically bundles and optimizes your application for production</p>
+			<code>parcel build src/index.html</code>
+			<p>Esto incluye:</p>
+			<ul>
+				<li>Minification</li>
+				<li>Tree shaking</li>
+				<li>Development branch removal</li>
+				<li>Image optimization</li>
+				<li>Differential bundling</li>
+				<li>Cache optimization</li>
+				<li>Compression with Gzip and Brotli (not enabled by default)</li>
+			</ul>
+
+			<p>Se ha instalado y configurado (.parcelrc) la compresión del bundle cuando se hace la build</p>
+			<code>npm i @parcel/compressor-gzip @parcel/compressor-brotli --save-dev</code>
+
+			<p>Más info <a href="https://parceljs.org/features/production/">aquí</a></p>
+		</div>
+
+
+		<div class="card">
+			<b>Env vars en dev y prod</b>
+			<p>Creamos ficheros .env para dev y prod</p>
+			<p>Para dev:</p>
+			<code>npm run start</code>
+			<p>Para prod:</p>
+			<code>npm run build:prod</code>
+			<code>cd dist</code>
+			<code>npx serve</code>
+			<p>Accedemos en <code>process.env.*</code></p>
+			<p>Ahora mismo estamos en modo: <b id="parcel_mode"></b></p>
+			<p>y el valor de SECRET_KEY es: <b id="parcel_env_secret_key"></b></p>
+		</div>
+
+
+		<div class="card">
+			<b>Bundle analyzer</b>
+			<p>Podemos usar --detailed-report 10 para ver los ficheros más grandes producidos en la build</p>
+			<p>Tambien se puede utilizar el plugin Bundle Analyzer o el plugin Bundle Buddy. Se ha instalado el primero</p>
+			<code>parcel build --reporter @parcel/reporter-bundle-analyzer</code>
+			<p>Se ha hecho un script "build:perf" para ello, que crea un html en ./parcel-bundle-reports parecido al de webpack</p>
+			<p>Más info <a href="https://parceljs.org/features/production/#analyzing-bundle-sizes">aqui</a></p>
+		</div>
+	</div>
+
+
+	<script type="module" src="./index.tsx"></script>
+</body>
+
+</html>

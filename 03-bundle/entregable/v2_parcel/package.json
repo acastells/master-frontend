@@ -1,0 +1,38 @@
+{
+  "name": "v2_parcel",
+  "version": "1.0.0",
+  "description": "v2",
+  "browserslist": [
+    "defaults"
+  ],
+  "source": "src/index.html",
+  "scripts": {
+    "start": "run-p -l type-check:watch start:dev",
+    "start:dev": "rimraf dist && parcel --open",
+    "start:prod": "rimraf dist && parcel --open ",
+    "build:prod": "rimraf dist && parcel build --no-source-maps",
+    "build:perf": "rimraf dist && parcel build --no-source-maps --detailed-report 10 --reporter @parcel/reporter-bundle-analyzer",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/compressor-brotli": "^2.10.3",
+    "@parcel/compressor-gzip": "^2.10.3",
+    "@parcel/reporter-bundle-analyzer": "^2.10.3",
+    "@parcel/transformer-sass": "^2.10.3",
+    "npm-run-all": "^4.1.5",
+    "parcel": "^2.10.3",
+    "postcss-modules": "^4.3.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "@types/react": "^18.2.38",
+    "@types/react-dom": "^18.2.16",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
