@@ -1,29 +1,29 @@
 console.log("************** DELIVERABLE 05 *********************");
 
-
 class SlothMachine {
-	coins: number;
+  coins: number;
 
-	constructor() {
-		this.coins = 0;
-	}
+  constructor() {
+    this.coins = 0;
+  }
 
-	play() {
-		this.coins++;
-		if (getRandomBoolean() && getRandomBoolean() && getRandomBoolean()) {
-			console.log(`Congratulations!!!. You won ${this.coins.toString()} coins!!`)
-			this.coins = 0
-		} else {
-			console.log("Good luck next time!!")
-		}
-	}
+  play(): void {
+    this.coins++;
+    if (getRandomBoolean() && getRandomBoolean() && getRandomBoolean()) {
+      var resultText: String = `Congratulations!!!. You won ${this.coins.toString()} coins!!`;
+      console.log(resultText);
+      this.coins = 0;
+    } else {
+      console.log("Good luck next time!!");
+    }
+  }
 }
 
-function getRandomBoolean() {
-	return Math.random() < 0.5; // 50% true, 50% false
+function getRandomBoolean(): boolean {
+  return Math.random() < 0.5; // 50% true, 50% false
 }
 
-const machine1 = new SlothMachine();
+const machine1: SlothMachine = new SlothMachine();
 machine1.play();
 machine1.play();
 machine1.play();
