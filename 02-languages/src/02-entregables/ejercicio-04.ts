@@ -6,13 +6,13 @@ interface Book {
 }
 
 function isBookRead(books: Array<Book>, titleToSearch: string): boolean {
-  let result = books.filter(
+  let result: Book[] = books.filter(
     (book) => book.title === titleToSearch && book.isRead === true
   );
   return result.length > 0;
 }
 
-const books = [
+const books: Book[] = [
   { title: "Harry Potter y la piedra filosofal", isRead: true },
   { title: "Canción de hielo y fuego", isRead: false },
   { title: "Devastación", isRead: true },
