@@ -18,6 +18,10 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.logo-optimize {
+  filter: invert(100%) sepia(0%) saturate(6681%) hue-rotate(83deg) brightness(118%) contrast(87%);
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
