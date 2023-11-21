@@ -1,24 +1,42 @@
 console.log("************** DELIVERABLE 03 *********************");
 
-function clone(source) {
-	return { ...source }
+function clone<T>(source: T): T {
+  return { ...source };
 }
 
-function merge(source, target) {
-	return { ...clone(target), ...clone(source) }
+function merge<T>(source: T, target: T): T {
+  return { ...clone(target), ...clone(source) };
 }
 
-const personA = { id: 1, name: "Maria", surname: "Ibañez", country: "SPA" };
-const personB = { id: 2, name: "Luisa", age: 31, married: true };
+interface Person {
+  id: Number;
+  name: String;
+  surname?: String;
+  country?: String;
+  age?: Number;
+  married?: Boolean;
+}
+
+const personA: Person = {
+  id: 1,
+  name: "Maria",
+  surname: "Ibañez",
+  country: "SPA",
+};
+const personB: Person = {
+  id: 2,
+  name: "Luisa",
+  age: 31,
+  married: true,
+};
 
 // CLONING
-let clonedPerson = clone(personA);
-console.log(clonedPerson)
-console.log(clonedPerson.country === personA.country)
-personA.country = "ENG" // if we change one value, the cloned one does not get modified, meaning that the countries must be different
-console.log(clonedPerson.country == personA.country)
-
+let clonedPerson: Person = clone(personA);
+console.log(clonedPerson);
+console.log(clonedPerson.country === personA.country);
+personA.country = "ENG"; // if we change value on personA, the cloned one remains unmodified
+console.log(clonedPerson.country == personA.country);
 
 // MERGING
-let mergedPerson = merge(personA, personB)
-console.log(mergedPerson)
+let mergedPerson: Person = merge(personA, personB);
+console.log(mergedPerson);
