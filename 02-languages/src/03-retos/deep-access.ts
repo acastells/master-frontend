@@ -56,24 +56,34 @@ const deepGet = (myObject, ...keys) => {
 
 const myObject2 = {};
 
-const deepSet = (valueToSet, result, ...keys) => {
-	for (let i in keys) {
-		let key = keys[i]
-
-		if (result && result[key] !== undefined) {
-			result[key] = {};
-		}
-		
-		//WIP
+const deepSet = (value, obj, ...keys) => {
+	if (keys.length === 0) {
+		return
 	}
-	return result
+
+	for (let i = 0; i < keys.length - 1; i++) {
+		const key = keys[i];
+
+		// if obj[key] is not defined, we create an empty object
+		if (typeof obj[key] !== "object") {
+			obj[key] = {};
+		}
+
+		// go to the next level of the object:
+		// If it is the last one, we will exit for-loop and set value, else will keep going inside of the object
+		obj = obj[key];
+	}
+
+	// We know that the correct structure is created now (= no errors will raise), so let's set the value
+	let last_key = keys[keys.length-1]
+	obj[last_key] = value;
 };
 
-deepSet(1, myObject, "a", "b");
-console.log(JSON.stringify(myObject)); // {a: { b: 1}}
-deepSet(2, myObject, "a", "c");
-console.log(JSON.stringify(myObject)); // {a: { b: 1, c: 2}}
-deepSet(3, myObject, "a");
-console.log(JSON.stringify(myObject)); // {a: 3}
-deepSet(4, myObject);
-console.log(JSON.stringify(myObject)); // Do nothing // {a: 3}
+deepSet(1, myObject2, "a", "b");
+console.log(JSON.stringify(myObject2)); // {a: { b: 1}}
+deepSet(2, myObject2, "a", "c");
+console.log(JSON.stringify(myObject2)); // {a: { b: 1, c: 2}}
+deepSet(3, myObject2, "a");
+console.log(JSON.stringify(myObject2)); // {a: 3}
+deepSet(4, myObject2);
+console.log(JSON.stringify(myObject2)); // Do nothing // {a: 3}
