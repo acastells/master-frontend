@@ -1,3 +1,8 @@
+# Install and Start
+`npm i`
+
+`npm run start`
+
 # Steps followed
 
 ## Vite with react and typescript
