@@ -1,15 +1,29 @@
+// PLantilla: https://codesandbox.io/p/sandbox/react-context-provider-example-x4683
+
 import React, { PropsWithChildren } from "react";
 
-interface ContextModel {}
+interface ContextModel {
+  username: String;
+  setUsername: (username: String) => void;
+}
 
-const Context = React.createContext<ContextModel>(null);
+export const UsernameContext = React.createContext<ContextModel>(null);
 
-const Provider: React.FC<PropsWithChildren> = ({ children }) => {
-  const [value, setValue] = React.useState<ContextModel>(null);
-  return <Context.Provider value={value}>{children}</Context.Provider>;
+export const UsernameProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
+  const [username, setUsername] = React.useState<ContextModel>();
+  return (
+    <UsernameContext.Provider value={{ username, setUsername }}>
+      {children}
+    </UsernameContext.Provider>
+  );
 };
 
-const MyComponent: React.FC = () => {
-  const {} = React.useContext(Context);
-  return <div>{}</div>;
+export const MyComponent: React.FC = () => {
+  const { username, setUsername } = React.useContext(UsernameContext);
+  return (
+    <>
+      <div>{username}</div>
+      <button onClick={() => setUsername("new username")}>Set Username</button>
+    </>
+  );
 };
