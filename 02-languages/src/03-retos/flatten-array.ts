@@ -1,4 +1,6 @@
-// TODO WIP
+// TODO WIP Typing
+
+/*
 
 
 type NestedArray<T> = T | NestedArray<T>[]
@@ -27,3 +29,5 @@ const flattenArray = <T>(array: NestedArray<T>): T[] => {
 const flattedSample = flattenArray(sample);
 console.log("ORIGINAL ->", sample);
 console.log("FLATTED ->", flattedSample); // será [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+*/
