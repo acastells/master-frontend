@@ -13,7 +13,7 @@
 
 //import "./03-retos/console-traces.js";
 //import "./03-retos/deep-access.js";
-//import "./03-retos/flatten-array.js"; // NOT DONE YET
+//import "./03-retos/flatten-array.js";
 //import "./03-retos/memoization.js";
 //import "./03-retos/tree.js"
 //import "./03-retos/understading.js"
