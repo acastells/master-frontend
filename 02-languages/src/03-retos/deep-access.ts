@@ -32,19 +32,17 @@ const deepGetNoReduce = (result, ...keys) => {
 
 const deepGet = (myObject, ...keys) => {
 	return keys.reduce(
-		// 1rst argument, callback with (accumulator, currentValue, _currentIndex, _array)
-		(acc, key) => (acc && acc[key] !== undefined ? acc[key] : undefined),
-		// 2nd argument = initialValue of accumulator
-		myObject
+		(acc, key) => (acc && acc[key] !== undefined ? acc[key] : undefined), // 1rst argument, callback with (accumulator, currentValue, _currentIndex, _array)
+		myObject // 2nd argument = initialValue of accumulator
 	);
 };
 
-//console.log(deepGet(myObject, "x")); // undefined
-//console.log(deepGet(myObject, "a")); // 1
-//console.log(deepGet(myObject, "b")); // { c: null, d: {....}}
-//console.log(deepGet(myObject, "b", "c")); // null
-//console.log(deepGet(myObject, "b", "d", "f", "g")); // bingo
-//console.log(deepGet(myObject)); // {a: 1, b: {...}}
+console.log(deepGet(myObject, "x")); // undefined
+console.log(deepGet(myObject, "a")); // 1
+console.log(deepGet(myObject, "b")); // { c: null, d: {....}}
+console.log(deepGet(myObject, "b", "c")); // null
+console.log(deepGet(myObject, "b", "d", "f", "g")); // bingo
+console.log(deepGet(myObject)); // {a: 1, b: {...}}
 
 /*
  *
@@ -58,7 +56,7 @@ const myObject2 = {};
 
 const deepSet = (value, obj, ...keys) => {
 	if (keys.length === 0) {
-		return
+		return;
 	}
 
 	for (let i = 0; i < keys.length - 1; i++) {
@@ -75,7 +73,7 @@ const deepSet = (value, obj, ...keys) => {
 	}
 
 	// We know that the correct structure is created now (= no errors will raise), so let's set the value
-	let last_key = keys[keys.length-1]
+	let last_key = keys[keys.length - 1];
 	obj[last_key] = value;
 };
 
