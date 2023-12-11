@@ -1,7 +1,7 @@
-export function getUsers() {
-	if (process.env.NODE_ENV === "development") {
-		return fetch("/mockup.json");
-	} else {
-		return fetch(`https://api.github.com/orgs/lemoncode/members`);
-	}
+export function getUsers(orgName: string) {
+	return fetch(`https://api.github.com/orgs/${orgName}/members`);
+}
+
+export function getUsersLocal() {
+	return fetch("./mockup.json"); // to return a local mockup json of lemoncode users
 }
