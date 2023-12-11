@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { getUsers } from "./api";
-import { useDebounce } from "./customHooks/useDebounce";
 
 interface MemberEntity {
 	id: string;
@@ -11,23 +10,36 @@ interface MemberEntity {
 
 export const ListPage: React.FC = () => {
 	const [members, setMembers] = React.useState<MemberEntity[]>([]);
-	const [orgFilter, setOrgFilter] = React.useState<string>("lemoncode")
-	const debouncedOrgFilter = useDebounce<string>(orgFilter, 1000)
+	const [orgFilter, setOrgFilter] = React.useState<string>("lemoncode");
 
 	React.useEffect(() => {
-		getUsers(debouncedOrgFilter)
-			.then((response) => response.status === 200 ? response.json() : [])
+		handleFilter();
+	}, []);
+
+	const handleButtonClick = () => {
+		handleFilter();
+	};
+
+	const handleFilter = () => {
+		getUsers(orgFilter)
+			.then((response) =>
+				response.status === 200 ? response.json() : []
+			)
 			.then((json) => setMembers(json))
 			.catch((e) => {
-				console.error(e)
-				setMembers([])
-			})
-	}, [debouncedOrgFilter]);
+				console.error(e);
+				setMembers([]);
+			});
+	};
 
 	return (
 		<>
 			<h2>Lemoncode users</h2>
-			<input onChange={(event) => setOrgFilter(event.target.value)} value={orgFilter} />
+			<input
+				onChange={(event) => setOrgFilter(event.target.value)}
+				value={orgFilter}
+			/>
+			<button onClick={handleButtonClick}>Filtrar</button>
 			<div className="list-user-list-container">
 				<span className="list-header">Avatar</span>
 				<span className="list-header">Id</span>
