@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { getUsers } from "../../api";
 import { FilterContext } from "../../contexts";
 
-import { Button, Box, TextField, Container } from '@mui/material';
+import { Button, Box, TextField, Container, Stack } from "@mui/material";
 
+import { useNavigate } from "react-router-dom";
 
 interface MemberEntity {
 	id: string;
@@ -13,6 +14,8 @@ interface MemberEntity {
 }
 
 export const ListPage: React.FC = () => {
+	const navigate = useNavigate();
+
 	const [members, setMembers] = React.useState<MemberEntity[]>([]);
 	const { orgName, setOrgName } = React.useContext(FilterContext);
 	const { perPage, setPerPage } = React.useContext(FilterContext);
@@ -29,9 +32,7 @@ export const ListPage: React.FC = () => {
 
 	const handleFilter = () => {
 		getUsers(orgName, perPage, page)
-			.then((response) =>
-				response.status === 200 ? response.json() : []
-			)
+			.then((response) => (response.status === 200 ? response.json() : []))
 			.then((json) => setMembers(json))
 			.catch((e) => {
 				console.error(e);
@@ -39,8 +40,15 @@ export const ListPage: React.FC = () => {
 			});
 	};
 
+	const handleLogout = () => {
+		navigate("/");
+	};
+
 	return (
 		<Container maxWidth="sm">
+			<Stack direction="row" justifyContent="flex-end" sx={{ mt: 1 }}>
+				<Button onClick={handleLogout}>Logout</Button>
+			</Stack>
 			<h2>{orgName} users</h2>
 			<form onSubmit={handleButtonClick}>
 				<TextField
@@ -48,26 +56,26 @@ export const ListPage: React.FC = () => {
 					variant="outlined"
 					onChange={(event) => setOrgName(event.target.value)}
 					value={orgName}
-					sx={{mb: 3}}
-                    fullWidth
+					sx={{ mb: 3 }}
+					fullWidth
 				/>
 				<TextField
 					label="Per Page"
 					variant="outlined"
 					onChange={(event) => setPerPage(Number(event.target.value))}
 					value={perPage}
-					sx={{mb: 3}}
-                    fullWidth
+					sx={{ mb: 3 }}
+					fullWidth
 				/>
 				<TextField
 					label="Per Page"
 					variant="outlined"
 					onChange={(event) => setPage(Number(event.target.value))}
 					value={page}
-					sx={{mb: 3}}
-                    fullWidth
+					sx={{ mb: 3 }}
+					fullWidth
 				/>
-				<Button variant="contained" type="submit" fullWidth sx={{mb: 3}}>
+				<Button variant="contained" type="submit" fullWidth sx={{ mb: 3 }}>
 					Filtrar
 				</Button>
 			</form>
@@ -80,12 +88,10 @@ export const ListPage: React.FC = () => {
 					<React.Fragment key={member.id}>
 						<img src={member.avatar_url} />
 						<span>{member.id}</span>
-						<Link to={`/detail/${member.login}`}>
-							{member.login}
-						</Link>
+						<Link to={`/detail/${member.login}`}>{member.login}</Link>
 					</React.Fragment>
 				))}
 			</Box>
-		</ Container>
+		</Container>
 	);
 };
