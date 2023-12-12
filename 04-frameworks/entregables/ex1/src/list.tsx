@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { getUsers } from "./api";
+import { FilterContext } from "./contexts";
 
 interface MemberEntity {
 	id: string;
@@ -10,18 +11,19 @@ interface MemberEntity {
 
 export const ListPage: React.FC = () => {
 	const [members, setMembers] = React.useState<MemberEntity[]>([]);
-	const [orgFilter, setOrgFilter] = React.useState<string>("lemoncode");
+	const { filter, setFilter } = React.useContext(FilterContext);
 
 	React.useEffect(() => {
 		handleFilter();
 	}, []);
 
-	const handleButtonClick = () => {
+	const handleButtonClick = (event) => {
+		event.preventDefault();
 		handleFilter();
 	};
 
 	const handleFilter = () => {
-		getUsers(orgFilter)
+		getUsers(filter)
 			.then((response) =>
 				response.status === 200 ? response.json() : []
 			)
@@ -35,11 +37,14 @@ export const ListPage: React.FC = () => {
 	return (
 		<>
 			<h2>Lemoncode users</h2>
-			<input
-				onChange={(event) => setOrgFilter(event.target.value)}
-				value={orgFilter}
-			/>
-			<button onClick={handleButtonClick}>Filtrar</button>
+			<form onSubmit={handleButtonClick}>
+				<input
+					onChange={(event) => setFilter(event.target.value)}
+					value={filter}
+				/>
+				<button onClick={handleButtonClick}>Filtrar</button>
+			</form>
+
 			<div className="list-user-list-container">
 				<span className="list-header">Avatar</span>
 				<span className="list-header">Id</span>
