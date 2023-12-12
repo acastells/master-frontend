@@ -15,7 +15,7 @@ export const FilterContextProvider: React.FC<PropsWithChildren<{}>> = ({
 	children,
 }) => {
 	const [orgName, setOrgName] = React.useState<string>("lemoncode");
-	const [perPage, setPerPage] = React.useState<number>(5);
+	const [perPage, setPerPage] = React.useState<number>(3);
 	const [page, setPage] = React.useState<number>(1);
 
 	return (
