@@ -3,14 +3,19 @@
 import React, { PropsWithChildren } from "react";
 
 interface ContextModel {
-  username: String;
-  setUsername: (username: String) => void;
+  username: string;
+  setUsername: (username: string) => void;
 }
 
-export const UsernameContext = React.createContext<ContextModel>(null);
+const initialUsernameContext = {
+	username: "",
+	setUsername: () => {}
+}
+
+export const UsernameContext = React.createContext<ContextModel>(initialUsernameContext);
 
 export const UsernameProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
-  const [username, setUsername] = React.useState<ContextModel>();
+  const [username, setUsername] = React.useState<string>("");
   return (
     <UsernameContext.Provider value={{ username, setUsername }}>
       {children}
