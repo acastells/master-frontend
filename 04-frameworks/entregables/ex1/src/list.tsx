@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { getUsers } from "./api";
 import { FilterContext } from "./contexts";
 
+import { Button, Box, TextField, Container } from '@mui/material';
+
+
 interface MemberEntity {
 	id: string;
 	login: string;
@@ -37,31 +40,39 @@ export const ListPage: React.FC = () => {
 	};
 
 	return (
-		<>
-			<h2>Lemoncode users</h2>
+		<Container maxWidth="sm">
+			<h2>{orgName} users</h2>
 			<form onSubmit={handleButtonClick}>
-				<span>Organization Name</span>
-				<input
+				<TextField
+					label="Org Name"
+					variant="outlined"
 					onChange={(event) => setOrgName(event.target.value)}
 					value={orgName}
+					sx={{mb: 3}}
+                    fullWidth
 				/>
-				<br></br>
-				<span>Per Page</span>
-				<input
+				<TextField
+					label="Per Page"
+					variant="outlined"
 					onChange={(event) => setPerPage(Number(event.target.value))}
 					value={perPage}
+					sx={{mb: 3}}
+                    fullWidth
 				/>
-				<br></br>
-				<span>Page</span>
-				<input
+				<TextField
+					label="Per Page"
+					variant="outlined"
 					onChange={(event) => setPage(Number(event.target.value))}
 					value={page}
+					sx={{mb: 3}}
+                    fullWidth
 				/>
-				<br></br>
-				<button onClick={handleButtonClick}>Filtrar</button>
+				<Button variant="contained" type="submit" fullWidth sx={{mb: 3}}>
+					Filtrar
+				</Button>
 			</form>
 
-			<div className="list-user-list-container">
+			<Box className="list-user-list-container">
 				<span className="list-header">Avatar</span>
 				<span className="list-header">Id</span>
 				<span className="list-header">Name</span>
@@ -74,8 +85,7 @@ export const ListPage: React.FC = () => {
 						</Link>
 					</React.Fragment>
 				))}
-			</div>
-			<Link to="/detail">Navigate to detail page</Link>
-		</>
+			</Box>
+		</ Container>
 	);
 };

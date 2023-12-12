@@ -10,8 +10,13 @@
   background-color: #2f4858;
   color: white;
   font-weight: bold;
+  text-align: center;
 }
 
 .list-user-list-container > img {
   width: 80px;
+}
+
+.list-user-list-container {
+  text-align: center;
 }
