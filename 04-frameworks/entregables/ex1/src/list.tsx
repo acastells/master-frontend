@@ -11,7 +11,9 @@ interface MemberEntity {
 
 export const ListPage: React.FC = () => {
 	const [members, setMembers] = React.useState<MemberEntity[]>([]);
-	const { filter, setFilter } = React.useContext(FilterContext);
+	const { orgName, setOrgName } = React.useContext(FilterContext);
+	const { perPage, setPerPage } = React.useContext(FilterContext);
+	const { page, setPage } = React.useContext(FilterContext);
 
 	React.useEffect(() => {
 		handleFilter();
@@ -23,7 +25,7 @@ export const ListPage: React.FC = () => {
 	};
 
 	const handleFilter = () => {
-		getUsers(filter)
+		getUsers(orgName, perPage, page)
 			.then((response) =>
 				response.status === 200 ? response.json() : []
 			)
@@ -38,10 +40,24 @@ export const ListPage: React.FC = () => {
 		<>
 			<h2>Lemoncode users</h2>
 			<form onSubmit={handleButtonClick}>
+				<span>Organization Name</span>
 				<input
-					onChange={(event) => setFilter(event.target.value)}
-					value={filter}
+					onChange={(event) => setOrgName(event.target.value)}
+					value={orgName}
 				/>
+				<br></br>
+				<span>Per Page</span>
+				<input
+					onChange={(event) => setPerPage(Number(event.target.value))}
+					value={perPage}
+				/>
+				<br></br>
+				<span>Page</span>
+				<input
+					onChange={(event) => setPage(Number(event.target.value))}
+					value={page}
+				/>
+				<br></br>
 				<button onClick={handleButtonClick}>Filtrar</button>
 			</form>
 
