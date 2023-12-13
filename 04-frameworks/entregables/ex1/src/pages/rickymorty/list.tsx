@@ -5,6 +5,7 @@ import { Button, Box, TextField, Container, Stack, FormLabel, RadioGroup, FormCo
 
 import { useNavigate } from "react-router-dom";
 import { getCharacters } from "../../api";
+import { useDebounce } from "../../customHooks/useDebounce";
 
 interface CharacterEntity {
 	id: number;
@@ -38,12 +39,14 @@ export const ListPage: React.FC = () => {
 			status: "all",
 			gender:"all"
 		});
+	const debouncedFilterOptions = useDebounce<CharacterFilterOptionsEntity>(characterFilterOptions, 500)
+
 
 	React.useEffect(() => {
-		getCharacters(characterFilterOptions)
+		getCharacters(debouncedFilterOptions)
 			.then((response) => response.json())
 			.then((data) => setCharacters(data.results));
-	}, [characterFilterOptions]);
+	}, [debouncedFilterOptions]);
 
 	const handleLogout = () => {
 		navigate("/");
