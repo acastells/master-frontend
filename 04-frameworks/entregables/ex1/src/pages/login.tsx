@@ -1,4 +1,4 @@
-import { Button, Container, Stack } from "@mui/material";
+import { Button, Container, Stack, TextField } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -17,21 +17,28 @@ export const LoginPage: React.FC = () => {
 
 	return (
 		<Container maxWidth="sm">
-			<h2>Login</h2>
-			<div>
+			<h1>Login</h1>
+			<Stack direction="row" justifyContent={"center"} sx={{ mt: 2 }}>
 				<div>
-					<label>Username: </label>
-					<input value={username} onChange={(e) => setUsername(e.target.value)} />
-				</div>
-				<div>
-					<label>Password: </label>
-					<input
-						type="password"
-						value={password}
+					<TextField
+						label="Username"
+						variant="outlined"
+						onChange={(e) => setUsername(e.target.value)}
+						value={username}
+						sx={{ mb: 3 }}
+						fullWidth
+					/>
+					<TextField
+						label="Password"
+						variant="outlined"
 						onChange={(e) => setPassword(e.target.value)}
+						value={password}
+						sx={{ mb: 3 }}
+						fullWidth
+						type="password"
 					/>
 				</div>
-			</div>
+			</Stack>
 
 			<Stack sx={{ mt: 2 }}>
 				<Button type="submit" variant="outlined" onClick={() => handleNavigation("/list")}>
