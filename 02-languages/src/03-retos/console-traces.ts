@@ -6,43 +6,15 @@ const showMessage = async ([time, message]) => {
 };
 
 const triggers = [
-	async () => await showMessage([600, "fourth"]), // === () => setTimeout(() => console.log("fourth"), 600),
-	async () => await showMessage([1000, "fifth"]),
-	async () => await showMessage([200, "second"]),
-	async () => await showMessage([400, "third"]),
+	async () => await showMessage([200, "third"]),
+	async () => await showMessage([100, "second"]),
 ];
 
-const execAllPromisesSequentially = (promises) => {
-	let currentPromise: Promise<void> = Promise.resolve();
-	promises.forEach((promise) => {
-		currentPromise = currentPromise.then(() => promise()); // Chain currentPromise with nextPromise
-	});
-	return currentPromise;
-};
-
-const run = (triggers) => {
+const run = async (triggers) => {
+	for (const trigger of triggers) {
+		await trigger();
+	}
 	console.log("first");
-
-	let promiseWrappers: Promise<void>[] = []; // stores promises that are wrapping the original triggers
-	let promisesSorted: Promise<void>[] = []; // stores promises in the order they should execute sequentially
-
-	triggers.forEach((trigger, index) => {
-		promiseWrappers.push(
-			new Promise((resolve) =>
-				trigger().then(() => {
-					promisesSorted.unshift(trigger); // push to the start, so the promises are already sorted
-					resolve(null);
-				})
-			)
-		);
-	});
-
-	Promise.all(promiseWrappers).then(() => {
-		console.log("---");
-		execAllPromisesSequentially(promisesSorted).then(() => {
-			console.log("first");
-		});
-	});
 };
 
 run(triggers);
