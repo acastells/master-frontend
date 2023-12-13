@@ -7,5 +7,5 @@ Tasks
 - [X] Que al volver de la página de detalle se muestre la organización que se había tecleado en el filtro (useContext)
 - [X] Paginación 
 - [X] Material UI (https://mui.com/material-ui/getting-started/installation/)
-- [ ] New Rick y Morty screen (list + search + debounce + detail screen)
+- [ ] New Rick y Morty screen (list + search + pagination +  debounce instead of filter button + detail screen)
 - [ ] Genereal styling
