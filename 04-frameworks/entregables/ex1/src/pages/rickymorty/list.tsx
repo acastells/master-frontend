@@ -5,5 +5,5 @@ import { FilterContext } from "../../contexts";
 import { Button, Box, TextField, Container } from "@mui/material";
 
 export const ListPage: React.FC = () => {
-	return <>list page rickandmorty</>;
+	return <h1>list page rickandmorty</h1>;
 };
