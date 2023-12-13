@@ -1,18 +1,10 @@
 console.log("************** DELIVERABLE 02 *********************");
 
-type ConcatAllFunctionTyping<T> = (...arrs: T[][]) => T[];
-
-const concat = <T>(a: T[], b: T[]): T[] => {
+const concat = <T, D>(a: T[], b: D[]): (T|D)[] => {
   return [...a, ...b];
 };
 
-const concatAll: ConcatAllFunctionTyping<any> = (...arrs) => {
-  let resultArr: any[] = [];
-  for (let arr of arrs) {
-    resultArr = [...resultArr, ...arr];
-  }
-  return resultArr;
-};
+const concatAll = (arr, ...rest) => [].concat(arr, ...rest);
 
 const concatAllRecursive = <T>(...arrs: T[][]): T[] => {
   if (arrs.length === 0) {
