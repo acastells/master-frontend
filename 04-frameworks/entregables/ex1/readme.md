@@ -9,3 +9,4 @@ Tasks
 - [X] Material UI (https://mui.com/material-ui/getting-started/installation/)
 - [ ] New Rick y Morty screen (list + search + pagination +  debounce instead of filter button + detail screen)
 - [ ] Genereal styling
+- [ ] Pods structure
