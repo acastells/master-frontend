@@ -1,10 +1,5 @@
-type NestedArray<T> = T | NestedArray<T>[];
-
-// type guard function
-function isNestedArray<T>(arr: NestedArray<T>): arr is NestedArray<T>[] {
-	return Array.isArray(arr);
-}
-
+// NestedArray es un array que contiene: 1. el tipo generico (en este caso number) o 2. Otro Array
+type NestedArray<T> = Array<T | NestedArray<T>>; 
 
 /* 
 	Clean recursive solution
@@ -14,20 +9,15 @@ function isNestedArray<T>(arr: NestedArray<T>): arr is NestedArray<T>[] {
 
 const sample: NestedArray<number> = [1, [2, 3], [[4], [5, 6, [7, 8, [9]]]]];
 
-function flatten<T>(arr: NestedArray<T>): T[] {
-	if (!isNestedArray(arr)) {
-		return [arr]; // devolvemos un T[] para cumplir con el tipado de la funcion recursiva
-	}
-	return [].concat(...arr.map((element) => flatten(element))); // ...arr coge el valor del array que no es nested y se concatena a un array vacio
+function flatten<T = any>(arr: NestedArray<T>): T[] {
+	return ([] as T[]).concat(
+		...arr.map((x) => {
+			return Array.isArray(x) ? flatten(x) : x;
+		})
+	);
 }
 
-let start = performance.now();
-const flattened: number[] = flatten(sample);
-console.log(flattened);
-let timeTaken = performance.now() - start;
-console.log("Total time taken : " + timeTaken + " milliseconds");
-
-
+console.log(flatten(sample))
 
 /* 
 	Alternative solution:
@@ -35,25 +25,21 @@ console.log("Total time taken : " + timeTaken + " milliseconds");
 	"""recursive"""
 */
 
-function isFlat(array){
-	var result = true
+function isFlat(array) {
+	var result = true;
 	array.forEach((value, index) => {
-		if (typeof value !== "number"){
-			result = false
+		if (typeof value !== "number") {
+			result = false;
 		}
-	})
-	return result
+	});
+	return result;
 }
 
-function flatten2(arr) {
-	while(isFlat(arr) === false){
-		arr = arr.flat()
+function flattenForceBrute(arr) {
+	while (isFlat(arr) === false) {
+		arr = arr.flat();
 	}
-	return arr
+	return arr;
 }
 
-start = performance.now()
-const flattened2: number[] = flatten2(sample);
-console.log(flattened2)
-timeTaken = performance.now() - start;
-console.log("Total time taken : " + timeTaken + " milliseconds");
+console.log(flattenForceBrute(sample))
