@@ -25,5 +25,5 @@ export function getCharacters(params: CharacterFilterOptionsEntity) {
 }
 
 export function getCharacterDetail(id: number) {
-	return fetch(`https://rickandmortyapi.com/api/characte/${id}`);
+	return fetch(`https://rickandmortyapi.com/api/character/${id}`);
 }
