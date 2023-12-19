@@ -9,7 +9,6 @@ import {
 	Stack,
 	FormLabel,
 	RadioGroup,
-	FormControl,
 	FormControlLabel,
 	Radio,
 	Grid,
@@ -21,7 +20,7 @@ import { useDebounce } from "../../customHooks/useDebounce";
 
 import { ArrowBackIosNewOutlined, ArrowForwardIosOutlined } from "@mui/icons-material";
 
-interface CharacterEntity {
+export interface CharacterEntity {
 	id: number;
 	name: string;
 	status: string;
@@ -29,11 +28,18 @@ interface CharacterEntity {
 	type: string;
 	gender: string;
 	image: string;
-	origin: object;
-	location: object;
+	origin: CharacterLocationEntity;
+	location: CharacterLocationEntity;
 	episode: string[];
 	url: string;
 	created: string;
+}
+
+export interface CharacterLocationEntity {
+	id: number;
+	name: string;
+	type: string;
+	dimension: string;
 }
 
 export interface CharacterFilterOptionsEntity {
