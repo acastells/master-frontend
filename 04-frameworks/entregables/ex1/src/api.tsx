@@ -4,11 +4,6 @@ export function getUsers(orgName: string, perPage: number, page: number) {
 	return fetch(`https://api.github.com/orgs/${orgName}/members?per_page=${perPage}&page=${page}`);
 }
 
-// Returns a local mockup json of lemoncode users
-export function getUsersLocal() {
-	return fetch("./mockup.json");
-}
-
 export function getCharacters(params: CharacterFilterOptionsEntity) {
 	let urlFilter = ""
 	for (const [key, value] of Object.entries(params)) {
