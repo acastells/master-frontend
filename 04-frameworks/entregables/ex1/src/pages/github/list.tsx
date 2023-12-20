@@ -6,7 +6,7 @@ import { FilterContext } from "../../core/providers/filter";
 import { Button, Box, TextField, Container, Stack } from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
-import { routes } from "../../app";
+import { routes } from "../../router";
 
 interface MemberEntity {
 	id: string;
@@ -89,7 +89,7 @@ export const ListPage: React.FC = () => {
 					<React.Fragment key={member.id}>
 						<img src={member.avatar_url} />
 						<span>{member.id}</span>
-						<Link to={`/detail/${member.login}`}>{member.login}</Link>
+						<Link to={routes.github.detail(member.login)}>{member.login}</Link>
 					</React.Fragment>
 				))}
 			</Box>

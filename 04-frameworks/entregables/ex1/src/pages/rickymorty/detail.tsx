@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getCharacterDetail } from "../../api";
 import { CharacterEntity } from "./list";
 import { Avatar, Box, Container, Grid, Link, Paper, Stack, Typography } from "@mui/material";
+import { routes } from "../../router";
 
 export const DetailPage: React.FC = () => {
 	const { id } = useParams();
@@ -46,7 +47,7 @@ export const DetailPage: React.FC = () => {
 	const CharacterDetailsPage = ({ character }) => (
 		<Container maxWidth="lg">
 			<CharacterDetails character={character} />
-			<Link href="/rickandmorty/list">Back to list page</Link>
+			<Link href={routes.rickandmorty.list}>Back to list page</Link>
 		</Container>
 	);
 

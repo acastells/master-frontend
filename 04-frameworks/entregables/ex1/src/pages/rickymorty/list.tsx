@@ -19,7 +19,7 @@ import { getCharacters } from "../../api";
 import { useDebounce } from "../../customHooks/useDebounce";
 
 import { ArrowBackIosNewOutlined, ArrowForwardIosOutlined } from "@mui/icons-material";
-import { routes } from "../../app";
+import { routes } from "../../router";
 
 export interface CharacterEntity {
 	id: number;
@@ -225,7 +225,7 @@ export const ListPage: React.FC = () => {
 						<React.Fragment key={character.id}>
 							<img src={character.image} />
 							<span>{character.id}</span>
-							<Link to={`/rickandmorty/detail/${character.id}`}>
+							<Link to={routes.rickandmorty.detail(character.id)}>
 								{character.name}
 							</Link>
 							<span>{character.status}</span>
