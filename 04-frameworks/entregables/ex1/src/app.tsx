@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { FilterContextProvider } from "./contexts";
+import { FilterContextProvider } from "./contexts/providers/filter";
 import { DetailPage, DetailPageRick, ListPage, ListPageRick, LoginPage } from "./pages";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
