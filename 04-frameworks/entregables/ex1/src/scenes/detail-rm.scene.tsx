@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { getCharacterDetail } from "../api";
 import { CharacterEntity } from "./list-rm.scene";
-import { Avatar, Box, Container, Grid, Link, Paper, Stack, Typography } from "@mui/material";
+import { Avatar, Box, Container, Grid, Paper, Stack, Typography } from "@mui/material";
 import { routes } from "../router";
+import { Link, useParams } from "react-router-dom";
 
 export const DetailRMScene: React.FC = () => {
 	const { id } = useParams();
@@ -47,7 +47,7 @@ export const DetailRMScene: React.FC = () => {
 	const CharacterDetailsPage = ({ character }) => (
 		<Container maxWidth="lg">
 			<CharacterDetails character={character} />
-			<Link href={routes.rickandmorty.list}>Back to list page</Link>
+			<Link to={routes.rickandmorty.list}>Back to list page</Link>
 		</Container>
 	);
 
