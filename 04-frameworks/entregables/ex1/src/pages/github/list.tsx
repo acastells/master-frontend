@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { getUsers } from "../../api";
-import { FilterContext } from "../../contexts/providers/filter";
+import { FilterContext } from "../../core/providers/filter";
 
 import { Button, Box, TextField, Container, Stack } from "@mui/material";
 
