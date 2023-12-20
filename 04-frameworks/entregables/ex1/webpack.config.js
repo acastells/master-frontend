@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const path = require("path");
 const basePath = __dirname;
 
@@ -6,6 +7,7 @@ module.exports = {
   context: path.join(basePath, "src"),
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
+    plugins: [new TsconfigPathsPlugin()],
   },
   entry: {
     app: ["./index.tsx", "./styles.css"],
@@ -14,10 +16,6 @@ module.exports = {
   stats: "errors-only",
   output: {
     filename: "[name].[chunkhash].js",
-    publicPath: "/",
-  },
-  devServer: {
-    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -47,6 +45,9 @@ module.exports = {
         ],
       },
     ],
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
     //Generate index.html in /dist => https://github.com/ampedandwired/html-webpack-plugin
