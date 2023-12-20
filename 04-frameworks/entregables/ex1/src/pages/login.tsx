@@ -1,6 +1,7 @@
 import { Button, Container, Stack, TextField } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { routes } from "../app";
 
 export const LoginPage: React.FC = () => {
 	const navigate = useNavigate();
@@ -41,13 +42,13 @@ export const LoginPage: React.FC = () => {
 			</Stack>
 
 			<Stack sx={{ mt: 2 }}>
-				<Button type="submit" variant="outlined" onClick={() => handleNavigation("/list")}>
+				<Button type="submit" variant="outlined" onClick={() => handleNavigation(routes.github.list)}>
 					Login to Github Users API
 				</Button>
 				<Button
 					type="submit"
 					variant="outlined"
-					onClick={() => handleNavigation("/rickandmorty/list")}>
+					onClick={() => handleNavigation(routes.rickandmorty.list)}>
 					Login to Rick and Morty API
 				</Button>
 			</Stack>

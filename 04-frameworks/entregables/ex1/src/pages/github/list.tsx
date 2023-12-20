@@ -6,6 +6,7 @@ import { FilterContext } from "../../contexts";
 import { Button, Box, TextField, Container, Stack } from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
+import { routes } from "../../app";
 
 interface MemberEntity {
 	id: string;
@@ -41,7 +42,7 @@ export const ListPage: React.FC = () => {
 	};
 
 	const handleLogout = () => {
-		navigate("/");
+		navigate(routes.login);
 	};
 
 	return (

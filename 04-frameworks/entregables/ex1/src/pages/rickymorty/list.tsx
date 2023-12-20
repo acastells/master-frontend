@@ -19,6 +19,7 @@ import { getCharacters } from "../../api";
 import { useDebounce } from "../../customHooks/useDebounce";
 
 import { ArrowBackIosNewOutlined, ArrowForwardIosOutlined } from "@mui/icons-material";
+import { routes } from "../../app";
 
 export interface CharacterEntity {
 	id: number;
@@ -83,7 +84,7 @@ export const ListPage: React.FC = () => {
 	}, [debouncedFilterOptions]);
 
 	const handleLogout = () => {
-		navigate("/");
+		navigate(routes.login);
 	};
 
 	const handlePrevPage = () => {

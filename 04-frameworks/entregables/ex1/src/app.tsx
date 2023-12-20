@@ -5,6 +5,19 @@ import { DetailPage, DetailPageRick, ListPage, ListPageRick, LoginPage } from ".
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
+
+export const routes = {
+	login: "/",
+	github: {
+		list: "/github/list",
+		detail: "/github/detail/:id"
+	},
+	rickandmorty: {
+		list: "/rickandmorty/list",
+		detail: "/rickandmorty/detail/:id"
+	}
+}
+
 export const App = () => {
 	const darkTheme = createTheme({
 		palette: {
@@ -18,11 +31,11 @@ export const App = () => {
 			<FilterContextProvider>
 				<Router>
 					<Routes>
-						<Route path="/" element={<LoginPage />} />
+						<Route path={routes.login} element={<LoginPage />} />
 						<Route path="/list" element={<ListPage />} />
 						<Route path="/detail/:id" element={<DetailPage />} />
-						<Route path="/rickandmorty/list" element={<ListPageRick />} />
-						<Route path="/rickandmorty/detail/:id" element={<DetailPageRick />} />
+						<Route path={routes.rickandmorty.list} element={<ListPageRick />} />
+						<Route path={routes.rickandmorty.detail} element={<DetailPageRick />} />
 					</Routes>
 				</Router>
 			</FilterContextProvider>
