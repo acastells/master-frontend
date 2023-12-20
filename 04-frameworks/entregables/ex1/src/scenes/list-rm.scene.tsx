@@ -15,11 +15,11 @@ import {
 } from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
-import { getCharacters } from "../../api";
-import { useDebounce } from "../../customHooks/useDebounce";
+import { getCharacters } from "../api";
+import { useDebounce } from "../customHooks/useDebounce";
 
 import { ArrowBackIosNewOutlined, ArrowForwardIosOutlined } from "@mui/icons-material";
-import { routes } from "../../router";
+import { routes } from "../router";
 
 export interface CharacterEntity {
 	id: number;
@@ -52,7 +52,7 @@ export interface CharacterFilterOptionsEntity {
 	gender?: string;
 }
 
-export const ListPage: React.FC = () => {
+export const ListRMScene: React.FC = () => {
 	const navigate = useNavigate();
 
 	const [characters, setCharacters] = React.useState<CharacterEntity[]>([]);

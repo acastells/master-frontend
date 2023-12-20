@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getCharacterDetail } from "../../api";
-import { CharacterEntity } from "./list";
+import { getCharacterDetail } from "../api";
+import { CharacterEntity } from "./list-rm.scene";
 import { Avatar, Box, Container, Grid, Link, Paper, Stack, Typography } from "@mui/material";
-import { routes } from "../../router";
+import { routes } from "../router";
 
-export const DetailPage: React.FC = () => {
+export const DetailRMScene: React.FC = () => {
 	const { id } = useParams();
 
 	const [character, setCharacter] = React.useState<CharacterEntity>(null);

@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../router";
 
-export const LoginPage: React.FC = () => {
+export const LoginScene: React.FC = () => {
 	const navigate = useNavigate();
 	const [username, setUsername] = React.useState("");
 	const [password, setPassword] = React.useState("");
