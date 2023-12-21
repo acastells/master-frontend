@@ -1,20 +1,17 @@
-import { CharacterFilterOptionsEntity } from "./scenes/list-rm.scene";
+import { CharacterFilterOptionsEntity } from "./pods/rickandmorty/list/list.component";
 
 export function getUsers(orgName: string, perPage: number, page: number) {
 	return fetch(`https://api.github.com/orgs/${orgName}/members?per_page=${perPage}&page=${page}`);
 }
 
 export function getCharacters(params: CharacterFilterOptionsEntity) {
-	let urlFilter = ""
+	let urlFilter = "";
 	for (const [key, value] of Object.entries(params)) {
-		if (key === "status" && value === "all"){
-
-		} else if (key === "gender" && value === "all"){
-
+		if (key === "status" && value === "all") {
+		} else if (key === "gender" && value === "all") {
 		} else {
-			urlFilter = `${urlFilter}&${key}=${value}`
+			urlFilter = `${urlFilter}&${key}=${value}`;
 		}
-		
 	}
 	return fetch(`https://rickandmortyapi.com/api/character?${urlFilter}`);
 }
