@@ -9,4 +9,6 @@ Tasks
 - [X] Material UI (https://mui.com/material-ui/getting-started/installation/)
 - [X] New Rick y Morty screen (list + search + pagination +  debounce instead of filter button + detail screen)
 - [X] Genereal styling
-- [ ] Convert to Pods structure
+
+- [ ] Convert to Pods structure (wip RickAndMorty + Login + split into files)
+- [ ] A bit more style in GH detail
