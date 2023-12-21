@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getUsers } from "../api";
-import { FilterContext } from "../core/providers/filter";
+import { getUsers } from "@/api";
+import { FilterContext } from "@/core/providers/filter";
 
 import { Button, Box, TextField, Container, Stack } from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
-import { routes } from "../router";
+import { routes } from "@/router";
 
 interface MemberEntity {
 	id: string;

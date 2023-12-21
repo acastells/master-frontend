@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { switchRoutes } from "./routes";
-import { DetailGHScene, DetailRMScene, ListGHScene, ListRMScene, LoginScene } from "../scenes";
+import { DetailGHScene, DetailRMScene, ListGHScene, ListRMScene, LoginScene } from "@/scenes";
 
 export const AppRouter = () => {
 	return (

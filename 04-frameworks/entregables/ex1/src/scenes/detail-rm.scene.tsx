@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { getCharacterDetail } from "../api";
+import { getCharacterDetail } from "@/api";
 import { CharacterEntity } from "./list-rm.scene";
 import { Avatar, Box, Container, Grid, Paper, Stack, Typography } from "@mui/material";
-import { routes } from "../router";
+import { routes } from "@/router";
 import { Link, useParams } from "react-router-dom";
 
 export const DetailRMScene: React.FC = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { routes } from "../router";
+import { routes } from "@/router";
 
 export const DetailGHScene: React.FC = () => {
   const {id} = useParams();

@@ -1,7 +1,7 @@
 import { Button, Container, Stack, TextField } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { routes } from "../router";
+import { routes } from "@/router";
 
 export const LoginScene: React.FC = () => {
 	const navigate = useNavigate();
