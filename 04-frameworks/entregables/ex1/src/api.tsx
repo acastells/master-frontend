@@ -4,6 +4,10 @@ export function getUsers(orgName: string, perPage: number, page: number) {
 	return fetch(`https://api.github.com/orgs/${orgName}/members?per_page=${perPage}&page=${page}`);
 }
 
+export function getUser(id: string) {
+	return fetch(`https://api.github.com/users/${id}`);
+}
+
 export function getCharacters(params: CharacterFilterOptionsEntity) {
 	let urlFilter = "";
 	for (const [key, value] of Object.entries(params)) {
