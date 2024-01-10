@@ -22,8 +22,6 @@ import { ArrowBackIosNewOutlined, ArrowForwardIosOutlined } from "@mui/icons-mat
 import { routes } from "@/router";
 import { CharacterEntity, CharacterFilterOptionsEntity } from "@/vm";
 
-
-
 export const ListRMScene: React.FC = () => {
 	const navigate = useNavigate();
 
@@ -39,19 +37,31 @@ export const ListRMScene: React.FC = () => {
 		300
 	);
 
-	const [paginationInfo, setPaginationInfo] = React.useState({
+	const emptyPaginationInfo = {
 		prev: null,
 		next: null,
 		count: null,
 		pages: null,
-	});
+	};
+	const [paginationInfo, setPaginationInfo] = React.useState(emptyPaginationInfo);
 
 	React.useEffect(() => {
 		getCharacters(debouncedFilterOptions)
 			.then((response) => response.json())
-			.then((data) => {
-				setCharacters(data.results);
-				setPaginationInfo(data.info);
+			.then((json) => {
+				if (json.error) {
+					console.error(json.error);
+					setCharacters([]);
+					setPaginationInfo(emptyPaginationInfo);
+				} else {
+					setCharacters(json.results);
+					setPaginationInfo(json.info);
+				}
+			})
+			.catch((e) => {
+				console.error(e);
+				setCharacters([]);
+				setPaginationInfo(emptyPaginationInfo);
 			});
 	}, [debouncedFilterOptions]);
 
@@ -71,7 +81,6 @@ export const ListRMScene: React.FC = () => {
 			...characterFilterOptions,
 			page: characterFilterOptions.page + 1,
 		});
-		console.log();
 	};
 
 	const PaginationInfoComponent = () => {
