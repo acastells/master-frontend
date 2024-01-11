@@ -12,7 +12,7 @@ export const LoginScene: React.FC = () => {
 		if (username === "admin" && password === "test") {
 			navigate(path);
 		} else {
-			alert("User / password not valid, psst... admin / test");
+			alert("User / password not valid. Hint, try with: admin / test");
 		}
 	};
 
