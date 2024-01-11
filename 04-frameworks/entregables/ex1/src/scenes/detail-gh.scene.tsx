@@ -1,42 +1,33 @@
+import { getUser } from "@/api";
+import { CenteredContent } from "@/layout";
+import { routes } from "@/router";
+import { MemberEntity } from "@/vm";
+import { Avatar } from "@mui/material";
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { routes } from "@/router";
-import { Avatar, Box, Paper } from "@mui/material";
-import { getUser } from "@/api";
-import { MemberEntity } from "@/vm";
 
 export const DetailGHScene: React.FC = () => {
 	const { id } = useParams();
 
-	const [character, setCharacter] = React.useState<MemberEntity>(null);
+	const [user, setUser] = React.useState<MemberEntity>(null);
 
 	React.useEffect(() => {
 		getUser(id)
 			.then((response) => response.json())
-			.then((data) => {
-				setCharacter(data);
-			});
+			.then(setUser);
 	}, [id]);
-
-	const CenteredContent = ({ children }) => (
-		<Box
-			sx={{
-				display: "flex",
-				alignItems: "center",
-				justifyContent: "center",
-				height: "100vh",
-			}}>
-			<Paper sx={{ padding: 4 }}>{children}</Paper>
-		</Box>
-	);
 
 	return (
 		<CenteredContent>
-			<h3 style={{ textAlign: "center" }}>{id}</h3>
-			{character && (
-				<Avatar src={character.avatar_url} sx={{ width: 128, height: 128, mb: 3 }} />
+			{user ? (
+				<>
+					<h3 style={{ textAlign: "center" }}>{id}</h3>
+					<Avatar src={user.avatar_url} sx={{ width: 128, height: 128, mb: 3 }} />
+					<Link to={routes.github.list}>Back to list page</Link>
+				</>
+			) : (
+				<h3>Loading...</h3>
 			)}
-			<Link to={routes.github.list}>Back to list page</Link>
 		</CenteredContent>
 	);
 };

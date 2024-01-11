@@ -9,4 +9,3 @@ Tasks
 - [X] Material UI (https://mui.com/material-ui/getting-started/installation/)
 - [X] New Rick y Morty screen (list + search + pagination +  debounce instead of filter button + detail screen)
 - [X] Genereal styling
-- [ ] A bit more style in GH detail
