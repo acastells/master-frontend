@@ -1,12 +1,5 @@
-import { useState } from 'react'
+import { AppRouter } from "./router/app.router.tsx";
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-    </>
-  )
-}
-
-export default App
+export const App: React.FC = () => {
+	return <AppRouter/>;
+};
