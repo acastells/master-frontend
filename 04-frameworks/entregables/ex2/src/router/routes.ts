@@ -1,7 +1,6 @@
 export const switchRoutes = {
 	home: "/",
-	kitties: "/kitties",
-	puppies: "/puppies",
+	store: "/store",
 	alpacas: "/alpacas",
 	calves: "/calves",
 	checkout: "/checkout",

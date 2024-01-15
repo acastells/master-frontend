@@ -1,19 +1,18 @@
-import { HomeScene } from "@/scenes";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { AlpacasScene, CalvesScene, StoreScene } from "../scenes";
 import { switchRoutes } from "./routes";
 
-export const AppRouter = () => {
+export const AppRouter: React.FC = () => {
 	return (
-		<HashRouter>
+		<BrowserRouter>
 			<Routes>
-				<Route path={switchRoutes.home} element={<HomeScene />} />
-				<Route path={switchRoutes.kitties} element={<HomeScene />} />
-				<Route path={switchRoutes.puppies} element={<HomeScene />} />
-				<Route path={switchRoutes.alpacas} element={<HomeScene />} />
-				<Route path={switchRoutes.calves} element={<HomeScene />} />
-				<Route path={switchRoutes.checkout} element={<HomeScene />} />
+				<Route path={switchRoutes.home} element={<StoreScene />} />
+				<Route path={switchRoutes.store} element={<StoreScene />} />
+				<Route path={switchRoutes.alpacas} element={<AlpacasScene />} />
+				<Route path={switchRoutes.calves} element={<CalvesScene />} />
+				<Route path={switchRoutes.checkout} element={<h1>Not implemented</h1>} />
 				<Route path="*" element={<div>404! not found!</div>} />
 			</Routes>
-		</HashRouter>
+		</BrowserRouter>
 	);
 };
