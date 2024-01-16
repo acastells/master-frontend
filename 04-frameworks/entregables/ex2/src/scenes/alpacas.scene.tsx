@@ -2,7 +2,7 @@ import { PictureInfo } from "@/vm/vm";
 import { Checkbox, FormControlLabel, ImageList, ImageListItem } from "@mui/material";
 import React from "react";
 import { CartContext } from "../core/providers/cart/cartContext";
-import { LayoutWithCart } from "../layout/layoutWithCart.layout";
+import { LayoutWithCart } from "../layout/CartLayout.layout";
 import { getAlpacasInitialData } from "../vm/initialData";
 
 export const AlpacasScene: React.FC = () => {
