@@ -4,4 +4,5 @@ export const switchRoutes = {
 	alpacas: "/alpacas",
 	calves: "/calves",
 	checkout: "/checkout",
+	paymentSuccess: "/paymentSuccess",
 };
