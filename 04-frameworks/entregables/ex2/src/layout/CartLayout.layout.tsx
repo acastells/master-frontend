@@ -1,4 +1,3 @@
-// Layout.js
 import { PictureInfo } from "@/vm/vm";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -52,7 +51,16 @@ export const LayoutWithCart = ({ children }: React.PropsWithChildren) => {
 					</React.Fragment>
 				))}
 
-				{cart.length > 0 && <Button sx={{mt:2}} onClick={emptyCart}>Empty Cart</Button>}
+				{cart.length > 0 && (
+					<>
+						<Button sx={{ m: 2 }} color="error" onClick={emptyCart}>
+							Empty Cart
+						</Button>
+						<Button sx={{ m: 2 }} color="success" onClick={() => navigate("/checkout")}>
+							Checkout and Pay
+						</Button>
+					</>
+				)}
 			</Box>
 		);
 	};
