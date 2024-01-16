@@ -6,6 +6,7 @@ interface CartContextEntity {
 	addImageToCart: (image: PictureInfo) => void;
 	removeImageFromCart: (image: PictureInfo) => void;
 	isInCart: (image: PictureInfo) => boolean;
+	emptyCart: () => void;
 }
 
 export const CartContext = createContext<CartContextEntity>({} as CartContextEntity);
@@ -25,8 +26,13 @@ export const CartContextProvider: React.FC<PropsWithChildren> = ({ children }) =
 		return cart.some((item) => item.id === image.id);
 	};
 
+	const emptyCart = () => {
+		setCart([]);
+	};
+
 	return (
-		<CartContext.Provider value={{ cart, addImageToCart, removeImageFromCart, isInCart }}>
+		<CartContext.Provider
+			value={{ cart, addImageToCart, removeImageFromCart, isInCart, emptyCart }}>
 			{children}
 		</CartContext.Provider>
 	);

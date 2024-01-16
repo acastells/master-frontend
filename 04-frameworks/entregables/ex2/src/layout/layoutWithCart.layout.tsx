@@ -21,7 +21,7 @@ import { CartContext } from "../core/providers/cart/cartContext";
 
 export const LayoutWithCart = ({ children }: React.PropsWithChildren) => {
 	const navigate = useNavigate();
-	const { cart, removeImageFromCart } = React.useContext(CartContext);
+	const { cart, removeImageFromCart, emptyCart } = React.useContext(CartContext);
 	const [isSidebarOpen, setSidebarOpen] = useState(false);
 
 	const toggleSidebar = () => {
@@ -51,6 +51,8 @@ export const LayoutWithCart = ({ children }: React.PropsWithChildren) => {
 						</Grid>
 					</React.Fragment>
 				))}
+
+				{cart.length > 0 && <Button sx={{mt:2}} onClick={emptyCart}>Empty Cart</Button>}
 			</Box>
 		);
 	};
