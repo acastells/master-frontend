@@ -9,7 +9,7 @@ import { NoCartLayout } from "../layout/NoCartLayout.layout";
 
 export const CheckoutScene: React.FC = () => {
 	const navigate = useNavigate();
-	const { cart } = React.useContext(CartContext);
+	const { cart, emptyCart } = React.useContext(CartContext);
 
 	return (
 		<NoCartLayout>
@@ -17,9 +17,7 @@ export const CheckoutScene: React.FC = () => {
 				Check your products
 			</Typography>
 			<Grid container justifyContent={"center"} pb={4}>
-				<Button onClick={() => navigate("/")}>
-					Go Back
-				</Button>
+				<Button onClick={() => navigate("/")}>Go Back</Button>
 			</Grid>
 			<ImageList sx={{ width: "100%", height: "100%", p: 4, pt: 0 }}>
 				{cart.map((item) => (
@@ -37,10 +35,13 @@ export const CheckoutScene: React.FC = () => {
 			</ImageList>
 
 			<Grid container justifyContent={"center"} pb={4}>
-				<Button onClick={() => navigate("/")}>
-					Go Back
-				</Button>
-				<Button color="success" onClick={() => navigate("/paymentSuccess")}>
+				<Button onClick={() => navigate("/")}>Go Back</Button>
+				<Button
+					color="success"
+					onClick={() => {
+						emptyCart();
+						navigate("/paymentSuccess");
+					}}>
 					Pay
 				</Button>
 			</Grid>
