@@ -23,9 +23,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./04-frameworks/entregables/ex3
     steps:
       - name: Checkout
         uses: actions/checkout@v4
