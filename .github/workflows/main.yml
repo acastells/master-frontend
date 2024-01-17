@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
 
 env:
-  ACTIONS_RUNNER_DEBUG : true
 
 # Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
 permissions:
@@ -67,7 +66,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload dist repository
-          path: './dist'
+          path: './04-frameworks/entregables/ex3/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
