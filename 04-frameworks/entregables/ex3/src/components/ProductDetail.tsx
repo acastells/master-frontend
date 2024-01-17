@@ -1,5 +1,9 @@
 import { Button, Grid } from "@mui/material";
-import { DataGrid, GridColDef, GridRowSelectionModel } from "@mui/x-data-grid";
+import {
+	DataGrid,
+	GridColDef,
+	GridRowSelectionModel
+} from "@mui/x-data-grid";
 import React from "react";
 import { Pedido, SubPedido } from "../vm";
 
@@ -16,7 +20,7 @@ const columns: GridColDef[] = [
 		valueGetter: ({ row }) => (row.validated ? "Válido" : "Pendiente"),
 	},
 	{ field: "descripcion", headerName: "Descripción", width: 360 },
-	{ field: "importe", headerName: "Importe", type: "number", width: 160 },
+	{ field: "importe", headerName: "Importe", type: "number", width: 160, editable: true },
 ];
 
 export const ProductDetail = (props: Props) => {
@@ -48,6 +52,17 @@ export const ProductDetail = (props: Props) => {
 		setRowSelectionModel([]);
 	};
 
+	const handleOnCellEditStop = (updatedRow: SubPedido) => {
+		const newSubpedidos = subpedidos.map((item) =>
+			item.id === updatedRow.id ? { ...item, importe: updatedRow.importe } : item
+		);
+		setPedido((prevPedido) => ({
+			...prevPedido,
+			subpedidos: newSubpedidos,
+		}));
+		return updatedRow;
+	};
+
 	return (
 		<>
 			<Grid container flexDirection={"row"} sx={{ mb: 2 }}>
@@ -65,6 +80,7 @@ export const ProductDetail = (props: Props) => {
 				hideFooter
 				rowSelectionModel={rowSelectionModel}
 				onRowSelectionModelChange={setRowSelectionModel}
+				processRowUpdate={handleOnCellEditStop}
 			/>
 		</>
 	);
