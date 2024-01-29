@@ -15,16 +15,12 @@ export const getValidatedProcess = (subPedidos: SubPedido[]) => {
 
 export const getInitialPedidoData = (): Pedido => {
 	const subPedidos = getInitialSubPedidoData();
-	const importeTotal = getImporteTotal(subPedidos);
-	const validatedProcess = getValidatedProcess(subPedidos);
 
 	return {
 		id: 1,
 		numero: Math.floor(Math.random() * 1000),
 		proveedor: "Zoaman SL",
-		fecha: 0,
-		importeTotal: importeTotal,
-		validatedProcess: validatedProcess,
+		fecha: new Date(),
 		subpedidos: subPedidos,
 	};
 };

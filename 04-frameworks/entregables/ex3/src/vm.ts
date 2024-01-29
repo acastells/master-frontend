@@ -2,10 +2,10 @@ export interface Pedido {
 	id: number;
 	numero: number;
 	proveedor: string;
-	fecha: number;
-	importeTotal: number;
-	validatedProcess: number;
+	fecha: Date;
 	subpedidos: SubPedido[];
+	// importeTotal: number;
+	// validatedProcess: number;
 }
 
 export interface SubPedido {

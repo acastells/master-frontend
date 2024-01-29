@@ -1,5 +1,6 @@
 import { Button, Grid, TextField } from "@mui/material";
 import { Pedido } from "../vm";
+import { getImporteTotal, getValidatedProcess } from "../logic";
 
 interface Props {
 	pedido: Pedido;
@@ -45,18 +46,18 @@ export const ProductHeader = (props: Props) => {
 					sx={{ mr: 2 }}
 					disabled
 					label="Importe total"
-					value={pedido.importeTotal}
+					value={getImporteTotal(pedido.subpedidos)}
 				/>
 				<TextField
 					variant="standard"
 					sx={{ mr: 2 }}
 					disabled
 					label="Estado válido"
-					value={`${pedido.validatedProcess * 100} %`}
+					value={`${getValidatedProcess(pedido.subpedidos) * 100} %`}
 				/>
 			</Grid>
 			<Grid container flexDirection={"row"} justifyContent={"center"} sx={{ mb: 2 }}>
-				<Button onClick={send} variant="outlined" disabled={pedido.validatedProcess !== 1}>Enviar</Button>
+				<Button onClick={send} variant="outlined" disabled={getValidatedProcess(pedido.subpedidos) !== 1}>Enviar</Button>
 			</Grid>
 		</>
 	);

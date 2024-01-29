@@ -1,10 +1,10 @@
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
-import { CenteredLayout } from "./components/CenteredLayout";
-import { ProductHeader } from "./components/ProductHeader";
-import { ProductDetail } from "./components/ProductDetail";
 import React from "react";
+import { CenteredLayout } from "./components/CenteredLayout";
+import { ProductDetail } from "./components/ProductDetail";
+import { ProductHeader } from "./components/ProductHeader";
+import { getInitialPedidoData } from "./logic";
 import { Pedido } from "./vm";
-import { getImporteTotal, getInitialPedidoData, getValidatedProcess } from "./logic";
 
 const darkTheme = createTheme({
 	palette: {
@@ -15,14 +15,6 @@ const darkTheme = createTheme({
 export default function App() {
 	const [pedido, setPedido] = React.useState<Pedido>(getInitialPedidoData());
 	const send = () => alert("Done!");
-
-	React.useEffect(() => {
-		setPedido({
-			...pedido,
-			importeTotal: getImporteTotal(pedido.subpedidos),
-			validatedProcess: getValidatedProcess(pedido.subpedidos),
-		});
-	}, [pedido.subpedidos]);
 
 	return (
 		<ThemeProvider theme={darkTheme}>
