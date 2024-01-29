@@ -51,7 +51,7 @@ export const FilterForm = ({ filterMembers }) => {
 					fullWidth
 				/>
 				<TextField
-					label="Per Page"
+					label="Page"
 					variant="outlined"
 					onChange={(event) => setPage(Number(event.target.value))}
 					value={page}

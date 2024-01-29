@@ -34,7 +34,7 @@ export const ListGHScene: React.FC = () => {
 	};
 
 	return (
-		<Container maxWidth="sm">
+		<Container maxWidth="sm" sx={{pb:4}}>
 			<Stack direction="row" justifyContent="flex-end" sx={{ mt: 1 }}>
 				<Button onClick={handleLogout}>Logout</Button>
 			</Stack>
