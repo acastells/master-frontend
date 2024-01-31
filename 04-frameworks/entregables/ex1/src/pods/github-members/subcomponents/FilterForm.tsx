@@ -27,6 +27,7 @@ export const FilterForm = ({ filterMembers }) => {
 				<TextField
 					label="Per Page"
 					variant="outlined"
+					type="number"
 					onChange={(event) => setPerPage(Number(event.target.value))}
 					value={perPage}
 					sx={{ mb: 3 }}
@@ -35,6 +36,7 @@ export const FilterForm = ({ filterMembers }) => {
 				<TextField
 					label="Page"
 					variant="outlined"
+					type="number"
 					onChange={(event) => setPage(Number(event.target.value))}
 					value={page}
 					sx={{ mb: 3 }}
