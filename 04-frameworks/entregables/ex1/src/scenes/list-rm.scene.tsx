@@ -8,9 +8,9 @@ import { useNavigate } from "react-router-dom";
 
 import { routes } from "@/core/router";
 
-import { CharacterEntity, CharacterFilterOptionsEntity } from "@/pods/vm";
 import { getCharacters } from "@/pods/rick-and-morty-characters/api";
 import { FilterSection, PaginationInfoComponent, TableSection } from "@/pods/rick-and-morty-characters/rickandmorty";
+import { CharacterEntity, CharacterFilterOptionsEntity } from "@/pods/rick-and-morty-characters/rick-and-morty-characters.vm";
 
 export const ListRMScene: React.FC = () => {
 	const navigate = useNavigate();

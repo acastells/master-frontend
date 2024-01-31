@@ -1,4 +1,5 @@
-import { CharacterFilterOptionsEntity } from "../vm";
+import { CharacterFilterOptionsEntity } from "./rick-and-morty-characters.vm";
+
 
 export function getCharacters(params: CharacterFilterOptionsEntity) {
 	let urlFilter = "";

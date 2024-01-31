@@ -1,10 +1,10 @@
 import { CenteredContent } from "@/layout";
 import { routes } from "@/core/router";
-import { CharacterEntity } from "@/pods/vm";
 import { Avatar, Container, Grid, Stack } from "@mui/material";
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getCharacterDetail } from "@/pods/rick-and-morty-character-details/api";
+import { CharacterEntity } from "@/pods/rick-and-morty-characters/rick-and-morty-characters.vm";
 
 export const DetailRMScene: React.FC = () => {
 	const { id } = useParams();

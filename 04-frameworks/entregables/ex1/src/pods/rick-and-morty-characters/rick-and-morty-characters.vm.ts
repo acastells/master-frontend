@@ -1,3 +1,12 @@
+export interface CharacterFilterOptionsEntity {
+	page: number;
+	name?: string;
+	status?: string;
+	species?: string;
+	type?: string;
+	gender?: string;
+}
+
 export interface CharacterEntity {
 	id: number;
 	name: string;
@@ -18,19 +27,4 @@ export interface CharacterLocationEntity {
 	name: string;
 	type: string;
 	dimension: string;
-}
-
-export interface CharacterFilterOptionsEntity {
-	page: number;
-	name?: string;
-	status?: string;
-	species?: string;
-	type?: string;
-	gender?: string;
-}
-
-export interface MemberEntity {
-	id: string;
-	login: string;
-	avatar_url: string;
 }
