@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Box, Button, Container, Stack, TextField } from "@mui/material";
 import React from "react";
 import { FilterContext } from "@/core/providers/filter";
-import { routes } from "@/router";
+import { routes } from "@/core/router";
 
 
 export const UsersTable = ({ members }) => (

@@ -1,12 +1,12 @@
-import { getUsers } from "@/api";
+import { getUsers } from "@/pods/api";
 import { FilterContext } from "@/core/providers/filter";
 import React from "react";
 
 import { Button, Container, Stack } from "@mui/material";
 
-import { routes } from "@/router";
-import { FilterForm, UsersTable } from "@/subcomponents";
-import { MemberEntity } from "@/vm";
+import { routes } from "@/core/router";
+import { FilterForm, UsersTable } from "@/pods/subcomponents";
+import { MemberEntity } from "@/pods/vm";
 import { useNavigate } from "react-router-dom";
 
 export const ListGHScene: React.FC = () => {

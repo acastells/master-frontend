@@ -2,13 +2,13 @@ import React from "react";
 
 import { Button, Container, Grid, Stack } from "@mui/material";
 
-import { getCharacters } from "@/api";
-import { useDebounce } from "@/customHooks/useDebounce";
+import { getCharacters } from "@/pods/api";
+import { useDebounce } from "@/core/customHooks/useDebounce";
 import { useNavigate } from "react-router-dom";
 
-import { routes } from "@/router";
-import { FilterSection, PaginationInfoComponent, TableSection } from "@/subcomponents";
-import { CharacterEntity, CharacterFilterOptionsEntity } from "@/vm";
+import { routes } from "@/core/router";
+import { FilterSection, PaginationInfoComponent, TableSection } from "@/pods/subcomponents";
+import { CharacterEntity, CharacterFilterOptionsEntity } from "@/pods/vm";
 
 export const ListRMScene: React.FC = () => {
 	const navigate = useNavigate();

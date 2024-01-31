@@ -1,7 +1,7 @@
-import { getCharacterDetail } from "@/api";
+import { getCharacterDetail } from "@/pods/api";
 import { CenteredContent } from "@/layout";
-import { routes } from "@/router";
-import { CharacterEntity } from "@/vm";
+import { routes } from "@/core/router";
+import { CharacterEntity } from "@/pods/vm";
 import { Avatar, Container, Grid, Stack } from "@mui/material";
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";

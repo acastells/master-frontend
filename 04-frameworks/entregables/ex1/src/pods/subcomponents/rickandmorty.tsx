@@ -13,7 +13,7 @@ import {
 	TextField,
 } from "@mui/material";
 
-import { routes } from "@/router";
+import { routes } from "@/core/router";
 import { ArrowBackIosNewOutlined, ArrowForwardIosOutlined } from "@mui/icons-material";
 
 export const FilterSection = ({ characterFilterOptions, setCharacterFilterOptions }) => {
