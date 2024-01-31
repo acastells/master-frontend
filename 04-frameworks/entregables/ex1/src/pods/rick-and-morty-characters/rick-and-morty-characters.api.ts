@@ -1,14 +1,15 @@
 import { CharacterFilterOptionsEntity } from "./rick-and-morty-characters.vm";
 
-
 export function getCharacters(params: CharacterFilterOptionsEntity) {
-	let urlFilter = "";
+	const urlParams = new URLSearchParams();
+
 	for (const [key, value] of Object.entries(params)) {
-		if (key === "status" && value === "all") {
-		} else if (key === "gender" && value === "all") {
-		} else {
-			urlFilter = `${urlFilter}&${key}=${value}`;
+		if ((key === "status" && value === "all") || (key === "gender" && value === "all")) {
+			continue;
 		}
+		urlParams.append(key, value);
 	}
-	return fetch(`https://rickandmortyapi.com/api/character?${urlFilter}`);
+
+	const url = `https://rickandmortyapi.com/api/character?${urlParams.toString()}`;
+	return fetch(url);
 }
