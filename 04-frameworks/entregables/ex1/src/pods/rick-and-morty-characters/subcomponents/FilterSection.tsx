@@ -1,20 +1,5 @@
+import { TextField, Grid, FormLabel, RadioGroup, FormControlLabel, Radio } from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
-
-import {
-	Box,
-	Button,
-	FormControlLabel,
-	FormLabel,
-	Grid,
-	Radio,
-	RadioGroup,
-	Stack,
-	TextField,
-} from "@mui/material";
-
-import { routes } from "@/core/router";
-import { ArrowBackIosNewOutlined, ArrowForwardIosOutlined } from "@mui/icons-material";
 
 export const FilterSection = ({ characterFilterOptions, setCharacterFilterOptions }) => {
 	return (
@@ -100,69 +85,5 @@ export const FilterSection = ({ characterFilterOptions, setCharacterFilterOption
 				</Grid>
 			</Grid>
 		</>
-	);
-};
-
-export const TableSection = ({ characters }) => {
-	return (
-		<>
-			<Box className="character-list-table" sx={{ mt: 2 }}>
-				<span className="list-header">Avatar</span>
-				<span className="list-header">Id</span>
-				<span className="list-header">Name</span>
-				<span className="list-header">Status</span>
-				<span className="list-header">Species</span>
-				<span className="list-header">Type</span>
-				<span className="list-header">Gender</span>
-				{characters.map((character) => (
-					<React.Fragment key={character.id}>
-						<img src={character.image} />
-						<span>{character.id}</span>
-						<Link to={routes.rickandmorty.detail(character.id)}>{character.name}</Link>
-						<span>{character.status}</span>
-						<span>{character.species}</span>
-						<span>{character.type}</span>
-						<span>{character.gender}</span>
-					</React.Fragment>
-				))}
-			</Box>
-		</>
-	);
-};
-
-export const PaginationInfoComponent = ({
-	characterFilterOptions,
-	setCharacterFilterOptions,
-	paginationInfo,
-}) => {
-	const handlePrevPage = () => {
-		setCharacterFilterOptions({
-			...characterFilterOptions,
-			page: characterFilterOptions.page - 1,
-		});
-	};
-
-	const handleNextPage = () => {
-		setCharacterFilterOptions({
-			...characterFilterOptions,
-			page: characterFilterOptions.page + 1,
-		});
-	};
-
-	return (
-		<Stack direction="row" justifyContent="center" alignItems="center" sx={{ mb: 2 }}>
-			<Button
-				disabled={paginationInfo.prev === null}
-				onClick={handlePrevPage}
-				startIcon={<ArrowBackIosNewOutlined />}></Button>
-			<p>
-				{characterFilterOptions.page}/{paginationInfo.pages} pages, {paginationInfo.count}{" "}
-				characters
-			</p>
-			<Button
-				disabled={paginationInfo.next === null}
-				onClick={handleNextPage}
-				startIcon={<ArrowForwardIosOutlined />}></Button>
-		</Stack>
 	);
 };

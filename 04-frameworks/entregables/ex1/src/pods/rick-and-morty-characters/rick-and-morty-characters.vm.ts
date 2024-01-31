@@ -28,3 +28,10 @@ export interface CharacterLocationEntity {
 	type: string;
 	dimension: string;
 }
+
+export interface PaginationInfo {
+	prev: null,
+	next: null,
+	count: null,
+	pages: null,
+}
