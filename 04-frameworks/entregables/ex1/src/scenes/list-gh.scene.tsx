@@ -1,13 +1,15 @@
-import { getUsers } from "@/pods/api";
+
 import { FilterContext } from "@/core/providers/filter";
 import React from "react";
 
 import { Button, Container, Stack } from "@mui/material";
 
 import { routes } from "@/core/router";
-import { FilterForm, UsersTable } from "@/pods/subcomponents";
+
 import { MemberEntity } from "@/pods/vm";
 import { useNavigate } from "react-router-dom";
+import { getUsers } from "@/pods/github-members/api";
+import { FilterForm, UsersTable } from "@/pods/github-members/github";
 
 export const ListGHScene: React.FC = () => {
 	const navigate = useNavigate();

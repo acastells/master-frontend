@@ -1,10 +1,10 @@
-import { getUser } from "@/pods/api";
 import { CenteredContent } from "@/layout";
 import { routes } from "@/core/router";
 import { MemberEntity } from "@/pods/vm";
 import { Avatar } from "@mui/material";
 import React from "react";
 import { Link, useParams } from "react-router-dom";
+import { getUser } from "@/pods/github-member-details/api";
 
 export const DetailGHScene: React.FC = () => {
 	const { id } = useParams();

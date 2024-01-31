@@ -2,13 +2,15 @@ import React from "react";
 
 import { Button, Container, Grid, Stack } from "@mui/material";
 
-import { getCharacters } from "@/pods/api";
+
 import { useDebounce } from "@/core/customHooks/useDebounce";
 import { useNavigate } from "react-router-dom";
 
 import { routes } from "@/core/router";
-import { FilterSection, PaginationInfoComponent, TableSection } from "@/pods/subcomponents";
+
 import { CharacterEntity, CharacterFilterOptionsEntity } from "@/pods/vm";
+import { getCharacters } from "@/pods/rick-and-morty-characters/api";
+import { FilterSection, PaginationInfoComponent, TableSection } from "@/pods/rick-and-morty-characters/rickandmorty";
 
 export const ListRMScene: React.FC = () => {
 	const navigate = useNavigate();
