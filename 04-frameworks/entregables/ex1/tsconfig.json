@@ -11,9 +11,9 @@
     "noLib": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["*"]
     },
     
     "strict": false
