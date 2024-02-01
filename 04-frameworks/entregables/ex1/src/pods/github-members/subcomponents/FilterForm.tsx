@@ -14,7 +14,6 @@ export const FilterForm = ({ filterMembers }) => {
 
 	return (
 		<>
-			<h2>{orgName} users</h2>
 			<form onSubmit={handleButtonClick}>
 				<TextField
 					label="Org Name"

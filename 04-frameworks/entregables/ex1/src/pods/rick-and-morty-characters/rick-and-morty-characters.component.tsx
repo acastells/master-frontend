@@ -1,7 +1,5 @@
-import { routes } from "@/core/router";
-import { Button, Container, Grid, Stack } from "@mui/material";
+import { Grid } from "@mui/material";
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import {
 	CharacterEntity,
 	CharacterFilterOptionsEntity,
@@ -21,18 +19,8 @@ interface Props {
 export const RickAndMortyCharactersComponent = (props: Props) => {
 	const { characters, characterFilterOptions, setCharacterFilterOptions, paginationInfo } = props;
 
-	const navigate = useNavigate();
-
-	const handleLogout = () => {
-		navigate(routes.login);
-	};
-
 	return (
-		<Container maxWidth="lg">
-			<Stack direction="row" justifyContent="flex-end" sx={{ mt: 2 }}>
-				<Button onClick={handleLogout}>Logout</Button>
-			</Stack>
-
+		<>
 			<h2
 				style={{
 					textAlign: "center",
@@ -60,6 +48,6 @@ export const RickAndMortyCharactersComponent = (props: Props) => {
 					/>
 				</Grid>
 			</Grid>
-		</Container>
+		</>
 	);
 };

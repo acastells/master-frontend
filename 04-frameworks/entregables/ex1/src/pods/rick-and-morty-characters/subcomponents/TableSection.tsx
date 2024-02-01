@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const TableSection = ({ characters }) => {
 	return (
 		<>
-			<Box className="character-list-table" sx={{ mt: 2 }}>
+			<Box className="character-list-table">
 				<span className="list-header">Avatar</span>
 				<span className="list-header">Id</span>
 				<span className="list-header">Name</span>
