@@ -1,4 +1,4 @@
-import { CenteredContent } from "@/layout";
+import { CenteredContent } from "@/layouts";
 import { GithubMembersDetailContainer } from "@/pods/github-member-details";
 import React from "react";
 

@@ -3,7 +3,7 @@ import React from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { switchRoutes } from "./routes";
 
-export const AppRouter = () => {
+export const RouterComponent = () => {
 	return (
 		<HashRouter>
 			<Routes>

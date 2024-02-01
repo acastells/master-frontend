@@ -1,1 +1,1 @@
-export { FilterContext, FilterContextProvider } from "./filterContext";
+export { FilterContext, FilterContextProvider } from "./filter.context";

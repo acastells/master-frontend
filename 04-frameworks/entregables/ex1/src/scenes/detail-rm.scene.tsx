@@ -1,4 +1,4 @@
-import { CenteredContent } from "@/layout";
+import { CenteredContent } from "@/layouts";
 import { RickAndMortyCharacterDetailsContainer } from "@/pods/rick-and-morty-character-details";
 import React from "react";
 

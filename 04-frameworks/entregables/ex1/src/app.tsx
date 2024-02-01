@@ -2,7 +2,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import React from "react";
 import { FilterContextProvider } from "./core/providers/filter";
-import { AppRouter } from "./core/router";
+import { RouterComponent } from "./core";
 
 export const App = () => {
 	const darkTheme = createTheme({
@@ -15,7 +15,7 @@ export const App = () => {
 		<ThemeProvider theme={darkTheme}>
 			<CssBaseline />
 			<FilterContextProvider>
-				<AppRouter />
+				<RouterComponent />
 			</FilterContextProvider>
 		</ThemeProvider>
 	);

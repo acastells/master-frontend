@@ -1,8 +1,8 @@
-import { routes } from "@/core/router";
 import { Avatar } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import { MemberEntity } from "../github-members/github-members.vm";
+import { routes } from "@/core";
 
 interface Props {
 	member: MemberEntity;

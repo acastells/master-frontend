@@ -1,7 +1,7 @@
-import { routes } from "@/core/router";
 import { Button, Container, Stack, TextField } from "@mui/material";
 import React from "react";
 import { AuthInfo } from "./login.vm";
+import { routes } from "@/core";
 
 interface Props {
 	authInfo: AuthInfo;

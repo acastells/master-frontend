@@ -1,4 +1,4 @@
-import { routes } from "@/core/router";
+import { routes } from "@/core";
 import { Button, Container, Stack } from "@mui/material";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";

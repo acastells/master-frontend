@@ -1,4 +1,4 @@
-import { ToolbarLayout } from "@/layout/ToolbarLayout";
+import { ToolbarLayout } from "@/layouts/ToolbarLayout";
 import { GithubMembersContainer } from "@/pods/github-members";
 import React from "react";
 

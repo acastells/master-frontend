@@ -1,8 +1,8 @@
-import { routes } from "@/core/router";
 import { Avatar, Container, Grid, Stack } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import { CharacterEntity } from "../rick-and-morty-characters/rick-and-morty-characters.vm";
+import { routes } from "@/core";
 
 interface Props {
 	character: CharacterEntity;

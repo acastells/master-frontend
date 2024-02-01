@@ -1,4 +1,4 @@
-import { routes } from "@/core/router";
+import { routes } from "@/core";
 import { Box } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
