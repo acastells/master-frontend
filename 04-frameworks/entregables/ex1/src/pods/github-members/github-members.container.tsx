@@ -1,7 +1,7 @@
 import { FilterContext } from "@/core/providers/filter";
 import React from "react";
-import { getUsers } from "./github-members.api";
 import { GithubMembersComponent } from "./github-members.component";
+import { getMembers } from "./github-members.repository";
 import { MemberEntity } from "./github-members.vm";
 
 export const GithubMembersContainer = () => {
@@ -13,8 +13,7 @@ export const GithubMembersContainer = () => {
 	}, []);
 
 	const filterMembers = () => {
-		getUsers(orgName, perPage, page)
-			.then((response) => (response.status === 200 ? response.json() : []))
+		getMembers(orgName, perPage, page)
 			.then(setMembers)
 			.catch((e) => {
 				console.error(e);
