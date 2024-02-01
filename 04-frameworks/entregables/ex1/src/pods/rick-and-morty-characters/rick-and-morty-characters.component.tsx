@@ -5,9 +5,7 @@ import {
 	CharacterFilterOptionsEntity,
 	PaginationInfo,
 } from "./rick-and-morty-characters.vm";
-import { FilterSection } from "./subcomponents/FilterSection";
-import { PaginationInfoComponent } from "./subcomponents/PaginationInfoComponent";
-import { TableSection } from "./subcomponents/TableSection";
+import { FilterSection, TableSection, PaginationInfoComponent } from "./subcomponents";
 
 interface Props {
 	characters: CharacterEntity[];
