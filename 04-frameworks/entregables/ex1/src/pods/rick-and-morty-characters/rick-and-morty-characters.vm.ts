@@ -15,23 +15,22 @@ export interface CharacterEntity {
 	type: string;
 	gender: string;
 	image: string;
-	origin: CharacterLocationEntity;
-	location: CharacterLocationEntity;
+	origin: {
+		name: string;
+		url: string;
+	};
+	location: {
+		name: string;
+		url: string;
+	};
 	episode: string[];
 	url: string;
 	created: string;
 }
 
-export interface CharacterLocationEntity {
-	id: number;
-	name: string;
-	type: string;
-	dimension: string;
-}
-
 export interface PaginationInfo {
-	prev: null,
-	next: null,
-	count: null,
-	pages: null,
+	count: number;
+	pages: number;
+	next: string | null;
+	prev: string | null;
 }

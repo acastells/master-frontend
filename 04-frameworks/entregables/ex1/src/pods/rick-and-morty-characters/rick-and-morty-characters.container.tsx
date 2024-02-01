@@ -1,8 +1,8 @@
 import { useDebounce } from "@/core/customHooks/useDebounce";
 import React from "react";
-import { getCharacters } from "./rick-and-morty-characters.api";
 import { RickAndMortyCharactersComponent } from "./rick-and-morty-characters.component";
 import { CharacterEntity, CharacterFilterOptionsEntity } from "./rick-and-morty-characters.vm";
+import { getCharacters } from "./api/api";
 
 export const RickAndMortyCharactersContainer = () => {
 	const [characters, setCharacters] = React.useState<CharacterEntity[]>([]);
@@ -30,7 +30,6 @@ export const RickAndMortyCharactersContainer = () => {
 
 	React.useEffect(() => {
 		getCharacters(debouncedFilterOptions)
-			.then((response) => response.json())
 			.then((json) => {
 				if (json.error) {
 					console.error(json.error);

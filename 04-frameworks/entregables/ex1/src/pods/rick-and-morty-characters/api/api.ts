@@ -1,4 +1,4 @@
-import { CharacterFilterOptionsEntity } from "./rick-and-morty-characters.vm";
+import { CharacterFilterOptionsEntity } from "../rick-and-morty-characters.vm";
 
 export function getCharacters(params: CharacterFilterOptionsEntity) {
 	const urlParams = new URLSearchParams();
@@ -11,5 +11,5 @@ export function getCharacters(params: CharacterFilterOptionsEntity) {
 	}
 
 	const url = `https://rickandmortyapi.com/api/character?${urlParams.toString()}`;
-	return fetch(url);
+	return fetch(url).then((response) => response.json());
 }
