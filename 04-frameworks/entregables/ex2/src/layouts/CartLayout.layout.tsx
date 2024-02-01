@@ -1,4 +1,3 @@
-import { PictureInfo } from "@/vm/vm";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import {
@@ -17,6 +16,7 @@ import {
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../core/providers/cart/cartContext";
+import { PictureInfo } from "@/vm/vm";
 
 export const LayoutWithCart = ({ children }: React.PropsWithChildren) => {
 	const navigate = useNavigate();

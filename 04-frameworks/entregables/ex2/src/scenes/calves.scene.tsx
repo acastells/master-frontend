@@ -2,7 +2,7 @@ import { PictureInfo } from "@/vm/vm";
 import { Checkbox, FormControlLabel, ImageList, ImageListItem } from "@mui/material";
 import React from "react";
 import { CartContext } from "../core/providers/cart/cartContext";
-import { LayoutWithCart } from "../layout/CartLayout.layout";
+import { LayoutWithCart } from "../layouts/CartLayout.layout";
 import { getCalvesInitialData } from "../vm/initialData";
 
 export const CalvesScene: React.FC = () => {

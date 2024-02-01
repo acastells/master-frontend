@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { AlpacasScene, CalvesScene, StoreScene } from "../scenes";
+import { AlpacasScene, CalvesScene, StoreScene } from "../../scenes";
 import { switchRoutes } from "./routes";
-import { CartContextProvider } from "../core/providers/cart/cartContext";
-import { CheckoutScene } from "../scenes/checkout.scene";
-import { PaymentSuccess } from "../scenes/paymentSuccess.scene";
+import { CartContextProvider } from "../providers/cart/cartContext";
+import { CheckoutScene } from "../../scenes/checkout.scene";
+import { PaymentSuccess } from "../../scenes/paymentSuccess.scene";
 
 export const AppRouter: React.FC = () => {
 	return (

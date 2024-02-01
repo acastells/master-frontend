@@ -5,7 +5,7 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../core/providers/cart/cartContext";
-import { NoCartLayout } from "../layout/NoCartLayout.layout";
+import { NoCartLayout } from "../layouts/NoCartLayout.layout";
 
 export const CheckoutScene: React.FC = () => {
 	const navigate = useNavigate();

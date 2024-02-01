@@ -1,6 +1,6 @@
 import { Button, ButtonGroup, Grid } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
-import { LayoutWithCart } from "../layout/CartLayout.layout";
+import { LayoutWithCart } from "../layouts/CartLayout.layout";
 
 export const StoreScene: React.FC = () => {
 	return (

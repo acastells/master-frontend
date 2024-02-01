@@ -1,6 +1,6 @@
 import { Button, Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { NoCartLayout } from "../layout/NoCartLayout.layout";
+import { NoCartLayout } from "../layouts/NoCartLayout.layout";
 
 export const PaymentSuccess: React.FC = () => {
 	const navigate = useNavigate();
