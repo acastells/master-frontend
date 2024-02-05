@@ -1,5 +1,5 @@
 <template>
   <div>
-    <NuxtWelcome />
+    <TodoList />
   </div>
 </template>
