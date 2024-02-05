@@ -1,10 +1,13 @@
 <template>
-	<div class="">
-		<input type="text" v-model="newTodoText" class="px-2 py-1 border border-gray-300 rounded" />
-		<button type="button" @click="addTodo" class="px-4 py-2 bg-blue-500 text-white rounded">
-			Add Todo
-		</button>
-	</div>
+	<UContainer>
+		<UInput
+			color="primary"
+			variant="outline"
+			placeholder="Create Todo"
+			v-model="newTodoText">
+		</UInput>
+		<UButton variant="solid" color="primary" @click="addTodo">+</UButton>
+	</UContainer>
 </template>
 
 <script setup lang="ts">

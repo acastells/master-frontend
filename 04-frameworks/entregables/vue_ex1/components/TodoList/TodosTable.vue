@@ -1,31 +1,30 @@
 <template>
-	<table class="w-full">
-		<thead>
-			<tr>
-				<th class="py-2">Done</th>
-				<th class="py-2">Name</th>
-				<th class="py-2">Actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr v-for="todo in store.todos" :key="todo.id">
-				<td class="py-2">
-					<input
+	<UContainer>
+		<table class="w-full">
+			<thead>
+				<tr>
+					<th class="py-2">Done</th>
+					<th class="py-2">Name</th>
+					<th class="py-2">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="todo in store.todos" :key="todo.id">
+					<td class="py-2">
+						<input
 						type="checkbox"
+						class="checkbox"
 						:checked="todo.isFinished"
 						@change="store.setters.toggleTodoIsFinished(todo.id)" />
-				</td>
-				<td class="py-2">{{ todo.text }}</td>
-				<td class="py-2">
-					<button
-						class="bg-red-500 text-white px-4 py-2 rounded"
-						@click="store.setters.removeTodo(todo.id)">
-						Remove
-					</button>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+					</td>
+					<td class="py-2">{{ todo.text }}</td>
+					<td class="py-2">
+						<UButton variant="solid" color="primary" @click="store.setters.removeTodo(todo.id)">Remove</UButton>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</UContainer>
 </template>
 
 <script setup lang="ts">
@@ -51,5 +50,10 @@ button {
 
 button:hover {
 	background-color: darkred;
+}
+
+.checkbox {
+	transform: scale(1.5);
+	accent-color: #34495e;
 }
 </style>

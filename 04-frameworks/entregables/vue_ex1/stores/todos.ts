@@ -36,6 +36,7 @@ export const useTodos = defineStore("todos", () => {
 			todos.value = todos.value.filter((todo) => todo.id !== id);
 		},
 		toggleTodoIsFinished(id: number) {
+			console.log("hey")
 			const todoIndex = todos.value.findIndex((todo) => todo.id === id);
 			if (todoIndex !== -1) {
 			  todos.value[todoIndex].isFinished = !todos.value[todoIndex].isFinished;
