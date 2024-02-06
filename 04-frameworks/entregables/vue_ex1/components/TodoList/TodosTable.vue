@@ -1,30 +1,33 @@
 <template>
-	<UContainer>
-		<table class="w-full">
-			<thead>
-				<tr>
-					<th class="py-2">Done</th>
-					<th class="py-2">Name</th>
-					<th class="py-2">Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr v-for="todo in store.todos" :key="todo.id">
-					<td class="py-2">
-						<input
+	<table class="w-full">
+		<thead>
+			<tr>
+				<th class="py-2">Done</th>
+				<th class="py-2">Name</th>
+				<th class="py-2">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr v-for="todo in store.todos" :key="todo.id">
+				<td class="py-2">
+					<input
 						type="checkbox"
 						class="checkbox"
 						:checked="todo.isFinished"
 						@change="store.setters.toggleTodoIsFinished(todo.id)" />
-					</td>
-					<td class="py-2">{{ todo.text }}</td>
-					<td class="py-2">
-						<UButton variant="solid" color="primary" @click="store.setters.removeTodo(todo.id)">Remove</UButton>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</UContainer>
+				</td>
+				<td class="py-2">{{ todo.text }}</td>
+				<td class="py-2">
+					<UButton
+						variant="solid"
+						color="primary"
+						@click="store.setters.removeTodo(todo.id)"
+						>Remove</UButton
+					>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </template>
 
 <script setup lang="ts">
