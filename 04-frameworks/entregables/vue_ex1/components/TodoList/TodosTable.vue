@@ -20,7 +20,7 @@
 				<td class="py-2">
 					<UButton
 						variant="solid"
-						color="primary"
+						color="red"
 						@click="store.setters.removeTodo(todo.id)"
 						>Remove</UButton
 					>
