@@ -1,1 +1,3 @@
-ToDo App
+# ToDo App
+- npm i
+- npm start
