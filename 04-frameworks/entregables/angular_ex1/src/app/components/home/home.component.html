@@ -2,14 +2,16 @@
 	@if (loggedIn) {
 	<app-private-header />
 	<div class="content">
-		<app-private-menu />
+		<h2> Dashboard </h2>
 	</div>
-	<app-footer />
 	} @else {
 	<app-public-header />
 	<div class="content">
-		<app-public-menu />
+		<h2>Welcome</h2>
+		<a mat-raised-button href="/">Home</a>
+		<a mat-raised-button href="/login">Login</a>
+		<a mat-raised-button href="/about">Acerca de</a>
 	</div>
-	<app-footer />
 	}
+	<app-footer />
 </div>

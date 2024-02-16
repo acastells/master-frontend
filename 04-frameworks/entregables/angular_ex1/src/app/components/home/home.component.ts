@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { FooterComponent } from '../footer/footer.component';
-import { PublicMenuComponent } from '../public-menu/public-menu.component';
 import { PublicHeaderComponent } from '../public-header/public-header.component';
-import { PrivateMenuComponent } from '../private-menu/private-menu.component';
 import { PrivateHeaderComponent } from '../private-header/private-header.component';
+import { SharedModule } from '../../shared-module/shared-module.module';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FooterComponent, PublicMenuComponent, PublicHeaderComponent, PrivateMenuComponent, PrivateHeaderComponent],
+  imports: [SharedModule, FooterComponent, PublicHeaderComponent, PrivateHeaderComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
