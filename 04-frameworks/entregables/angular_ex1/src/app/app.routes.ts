@@ -7,6 +7,6 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 export const routes: Routes = [
 	{ path: '', component: HomeComponent },
 	{ path: 'login', component: LoginComponent },
-	{ path: 'acerca-de', component: AboutComponent },
-	{ path: 'galeria', component: GalleryComponent },
+	{ path: 'about', component: AboutComponent },
+	{ path: 'gallery', component: GalleryComponent },
   ];
