@@ -1,1 +1,18 @@
-<p>footer works!</p>
+<mat-toolbar color="primary">
+	<mat-toolbar-row>
+		<span class="footer-text">©ACC 2024</span>
+	</mat-toolbar-row>
+	<mat-toolbar-row>
+		@for (item of [
+		{ title: 'Explore the Docs', link: 'https://angular.dev' },
+		{ title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
+		{ title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
+		{ title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
+		{ title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
+		]; track item.title) {
+		<span class="footer-text">
+			<a mat-flat-button [href]="item.link" target="_blank" rel="noopener">{{ item.title }}</a>
+		</span>
+		}
+	</mat-toolbar-row>
+</mat-toolbar>
