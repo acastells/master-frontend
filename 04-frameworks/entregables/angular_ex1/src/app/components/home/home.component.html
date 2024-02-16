@@ -1,9 +1,15 @@
-@if (loggedIn) {
+<div class="container">
+	@if (loggedIn) {
 	<app-private-header />
-	<app-private-menu />
+	<div class="content">
+		<app-private-menu />
+	</div>
 	<app-footer />
-} @else {
+	} @else {
 	<app-public-header />
-	<app-public-menu />
+	<div class="content">
+		<app-public-menu />
+	</div>
 	<app-footer />
-}
+	}
+</div>
