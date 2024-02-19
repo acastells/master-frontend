@@ -1,8 +1,10 @@
 <mat-toolbar color="primary">
+	<img src="assets/logo.png" alt="Logo" style="height: 40px; margin-right: 16px;">
 	<a mat-button href="/" style="font-size: 24px;">My App</a>
 	<span class="spacer"></span>
 	<a mat-button href="/">Dashboard</a>
 	<a mat-button href="/gallery">Gallery</a>
 	<a mat-button href="/crud">CRUD</a>
 	<a mat-button href="/profile">Profile</a>
-</mat-toolbar>
+	<a mat-button (click)="onLogout()">Logout</a>
+  </mat-toolbar>
