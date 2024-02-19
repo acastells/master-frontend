@@ -13,8 +13,12 @@ import { Router } from '@angular/router';
 export class PrivateHeaderComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
+  username = this.authService.getUsername()
+
   onLogout() {
     this.authService.logout();
     this.router.navigate(['/']);
   }
+
+
 }

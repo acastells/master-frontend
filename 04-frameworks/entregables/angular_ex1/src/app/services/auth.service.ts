@@ -15,7 +15,7 @@ export class AuthService {
   constructor() {}
 
   login(username: string, password: string): boolean {
-    if (username === 'master@lemoncode.net’' && password === '12345678') {
+    if (username === 'master@lemoncode.net' && password === '12345678') {
       this.username = username;
       this.isLoggedIn = true;
       localStorage.setItem('username', username);
