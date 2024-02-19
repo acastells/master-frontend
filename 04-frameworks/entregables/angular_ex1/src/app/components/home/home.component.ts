@@ -8,14 +8,25 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SharedModule, FooterComponent, PublicHeaderComponent, PrivateHeaderComponent],
+  imports: [
+    SharedModule,
+    FooterComponent,
+    PublicHeaderComponent,
+    PrivateHeaderComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  isLoggedIn: boolean = false
+  isLoggedIn: boolean = false;
 
-  constructor(private authSerice: AuthService){
-    this.isLoggedIn = this.authSerice.isAuthenticated()
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+    this.authService
+      .getAuthChangedObservable()
+      .subscribe((isAuthenticated: boolean) => {
+        this.isLoggedIn = isAuthenticated;
+      });
   }
 }
