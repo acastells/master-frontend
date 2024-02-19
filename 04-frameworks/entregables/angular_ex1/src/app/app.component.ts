@@ -21,6 +21,11 @@ export class AppComponent {
   isLoggedIn: boolean = false;
 
   constructor(private authService: AuthService) {
-    this.isLoggedIn = this.authService.isAuthenticated();
+  }
+
+  ngOnInit() {
+    this.authService.getAuthChangedObservable().subscribe((isAuthenticated: boolean) => {
+      this.isLoggedIn = isAuthenticated;
+    });
   }
 }

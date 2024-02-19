@@ -16,4 +16,6 @@
 .router-outlet-div {
   flex: 1;
   padding: 24px;
+  display: flex;
+  justify-content: center;
 }
