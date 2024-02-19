@@ -42,7 +42,7 @@ export class LoginComponent {
     );    
 
     if (loggedIn) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/dashboard']);
     } else {
       this.error = "Wrong credentials"
     }
