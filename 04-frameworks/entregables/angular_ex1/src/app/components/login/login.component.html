@@ -1,1 +1,10 @@
-<p>login works!</p>
+<h1>Login</h1>
+<mat-form-field>
+	<mat-label>Username</mat-label>
+	<input [(ngModel)]="username" matInput>
+</mat-form-field>
+<mat-form-field>
+	<mat-label>Password</mat-label>
+	<input [(ngModel)]="password" matInput type="password">
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="onLogin()">Login</button>
