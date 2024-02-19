@@ -1,0 +1,12 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.router-outlet-div {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
