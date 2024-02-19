@@ -9,3 +9,25 @@
 mat-form-field {
   min-width: 400px;
 }
+
+.error {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
+
+mat-card-title {
+  padding: 16px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
