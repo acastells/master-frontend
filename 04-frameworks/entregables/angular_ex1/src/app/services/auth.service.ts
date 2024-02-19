@@ -23,7 +23,7 @@ export class AuthService {
       this.authChangedSubject.next(this.isLoggedIn);
       return true;
     } else {
-      this.username = "";
+      this.username = '';
       this.isLoggedIn = false;
       localStorage.removeItem('isLoggedIn');
       localStorage.setItem('isLoggedIn', 'false');
@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   logout(): void {
-    this.username = "";
+    this.username = '';
     this.isLoggedIn = false;
     localStorage.removeItem('isLoggedIn');
     localStorage.setItem('isLoggedIn', 'false');
@@ -49,6 +49,6 @@ export class AuthService {
   }
 
   getUsername(): string {
-    return this.username
+    return this.username;
   }
 }

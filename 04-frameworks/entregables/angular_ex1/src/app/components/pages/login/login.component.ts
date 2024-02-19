@@ -5,7 +5,6 @@ import {
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
-  ValidationErrors,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -20,7 +19,7 @@ import { SharedModule } from '../../../shared/shared.module';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  error: string = "";
+  error: string = '';
   form: FormGroup = new FormGroup({
     username: new FormControl('', Validators.email),
     password: new FormControl('', Validators.required),
@@ -29,7 +28,7 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   onLogin() {
-    this.error = "";
+    this.error = '';
     if (!this.form.valid) {
       this.getFormValidationErrors();
       return;
@@ -39,12 +38,12 @@ export class LoginComponent {
     const loggedIn = this.authService.login(
       formValue.username,
       formValue.password
-    );    
+    );
 
     if (loggedIn) {
       this.router.navigate(['/dashboard']);
     } else {
-      this.error = "Wrong credentials"
+      this.error = 'Wrong credentials';
     }
   }
 
