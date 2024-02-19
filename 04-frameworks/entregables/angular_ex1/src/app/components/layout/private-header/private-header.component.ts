@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { SharedModule } from '../../shared-module/shared-module.module';
-import { AuthService } from '../../services/auth.service';
+import { SharedModule } from '../../../shared/shared.module';
+import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({

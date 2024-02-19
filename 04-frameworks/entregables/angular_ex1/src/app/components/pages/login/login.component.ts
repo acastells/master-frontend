@@ -9,8 +9,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
-import { SharedModule } from '../../shared-module/shared-module.module';
+import { AuthService } from '../../../services/auth.service';
+import { SharedModule } from '../../../shared/shared.module';
 
 @Component({
   selector: 'app-login',

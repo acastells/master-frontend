@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { PublicHeaderComponent } from './components/public-header/public-header.component';
-import { PrivateHeaderComponent } from './components/private-header/private-header.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { PublicHeaderComponent } from './components/layout/public-header/public-header.component';
+import { PrivateHeaderComponent } from './components/layout/private-header/private-header.component';
+import { FooterComponent } from './components/layout/footer/footer.component';
 import { AuthService } from './services/auth.service';
 
 @Component({
