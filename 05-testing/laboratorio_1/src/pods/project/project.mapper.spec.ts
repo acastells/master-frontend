@@ -2,7 +2,7 @@ import * as apiModel from './api/project.api-model';
 import * as viewModel from './project.vm';
 import { mapProjectFromApiToVm } from './project.mapper';
 
-describe('pods/project/project.mapper.ts mapProjectFromApiToVm', () => {
+describe('project mapper specs', () => {
   it('map project from API to view model with valid project + no employees, result project', () => {
     // Arrange
     const project: apiModel.Project = {

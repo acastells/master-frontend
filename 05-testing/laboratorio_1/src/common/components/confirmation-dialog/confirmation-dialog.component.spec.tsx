@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent, within } from '@testing-library/react';
 import { ConfirmationDialogComponent } from './confirmation-dialog.component';
 
-describe('common/components/confirmation-dialog/confirmation-dialog.component.tsx', () => {
+describe('ConfirmationDialog component specs', () => {
   // Arrange
   const mockOnAccept = jest.fn();
   const mockOnClose = jest.fn();
