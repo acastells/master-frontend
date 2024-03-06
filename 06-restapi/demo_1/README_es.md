@@ -7,6 +7,10 @@ Project startup:
 - End points de API configurado.
 - Variables de entorno configurado.
 
-# ¿Con ganas de ponerte al día con Backend?
+# SETUP .env with
 
-Apuntate a nuestro [Bootcamp Backend Online Lemoncode](https://lemoncode.net/bootcamp-backend#bootcamp-backend/banner)
+NODE_ENV=development
+PORT=3000
+GOOGLE_CLIENT_ID=412695722899....
+GOOGLE_CLIENT_SECRET=GOCSPX-fhqVDtg....
+
