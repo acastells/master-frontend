@@ -16,7 +16,7 @@ export const ProjectRowComponent: React.FunctionComponent<Props> = ({
   onDelete,
 }) => {
   return (
-    <RowComponent>
+    <RowComponent aria-label={row.name}>
       <CellComponent>
         <Checkbox checked={row.isActive} disabled />
       </CellComponent>
@@ -25,10 +25,10 @@ export const ProjectRowComponent: React.FunctionComponent<Props> = ({
       <CellComponent>{row.lastDateIncurred}</CellComponent>
       <CellComponent>
         {row.creationDate}
-        <IconButton onClick={() => onEdit(row.id)}>
+        <IconButton aria-label="Edit project" onClick={() => onEdit(row.id)}>
           <EditIcon />
         </IconButton>
-        <IconButton onClick={() => onDelete(row)}>
+        <IconButton aria-label="Delete project" onClick={() => onDelete(row)}>
           <DeleteIcon />
         </IconButton>
       </CellComponent>

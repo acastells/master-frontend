@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - feature/laboratorio-testing-obligatorio
+      - feature/laboratorio-testing-opcional
 
 defaults:
   run:
@@ -19,3 +20,11 @@ jobs:
         run: npm i
       - name: Unit tests
         run: npm test
+      - name: E2e tests
+        run: npm run test:e2e:ci
+      - name: Upload screenshots when E2E tests fail
+        if: ${{ failure()}}
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: ./cypress/screenshots

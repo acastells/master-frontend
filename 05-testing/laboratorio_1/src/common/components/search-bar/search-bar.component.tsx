@@ -22,6 +22,7 @@ export const SearchBarComponent: React.FunctionComponent<Props> = (props) => {
       value={search}
       onChange={(e) => onSearch(e.target.value)}
       placeholder={labels.placeholder}
+      aria-label={labels.placeholder}
       InputProps={{
         startAdornment: <SearchIcon />,
       }}

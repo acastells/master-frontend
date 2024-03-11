@@ -24,8 +24,6 @@ describe('ConfirmationDialog component specs', () => {
     // Act
     render(<ConfirmationDialogComponent {...defaultComponentProps} />);
 
-    screen.debug();
-
     // Assert
     const dialogElement = screen.getByRole('dialog');
     const titleElement = within(dialogElement).getByRole('heading', {

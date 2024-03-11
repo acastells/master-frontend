@@ -28,6 +28,7 @@ export const SnackbarComponent: React.FunctionComponent<Props> = (props) => {
       <SnackbarContent
         className={classes[options.variant]}
         message={options.message}
+        aria-label={options.message}
         action={[
           <IconButton key="close" color="inherit" onClick={onClose}>
             <CloseIcon />
