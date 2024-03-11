@@ -1,9 +1,9 @@
-# Simple workflow for deploying static content to GitHub Pages
 name: CI workflow
 
 on:
   push:
     branches:
+      - feature/laboratorio-testing-obligatorio
       - feature/laboratorio-testing-opcional
 
 defaults:
