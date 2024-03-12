@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Character } from './character.api-model';
+import * as vmModel from "../character.vm"
 
 export const getCharacter = async (id: number): Promise<Character> => {
   let url: string;
@@ -22,6 +23,9 @@ export const getCharacter = async (id: number): Promise<Character> => {
   return character;
 };
 
-export const saveCharacter = async (character: Character): Promise<boolean> => {
-  return true;
+export const saveCharacter = async (character: vmModel.Character): Promise<boolean> => {
+  const url = `${process.env.JSON_SERVER_ENDPOINT}/character/${character.id}`;
+  const response = await axios.patch(url, character)
+  console.log(response, character)
+  return true
 };

@@ -5,6 +5,8 @@ import {
   TableBody,
   TableCell,
   TableRow,
+  TextField,
+  Tooltip,
 } from '@mui/material';
 import Button from '@mui/material/Button';
 import React from 'react';
@@ -20,11 +22,28 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
   const { character, onSave } = props;
   const navigate = useNavigate();
 
+  const [saveStatus, setSaveStatus] = React.useState({
+    disabled: process.env.API_ENDPOINT !== 'json_server',
+    reason:
+      process.env.API_ENDPOINT !== 'json_server'
+        ? "Can not save on public API. Change endpoint to json server."
+        : '',
+  });
+
+  const [newBestSentence, setNewBestSentence] = React.useState('');
+
+  const handleOnSave = () => {
+    if (newBestSentence) {
+      character.bestSentences.push(newBestSentence);
+    }
+    onSave(character);
+  };
+
   if (character) {
     return (
       <Container>
         <Box sx={{ display: 'flex', flexDirection: 'row', gap: 8 }}>
-          <img src={character.image} />
+          <img src={character.image} height={150} />
           <Table>
             <TableBody>
               <TableRow>
@@ -61,13 +80,27 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
                 <TableCell>
                   <b>Origin</b>
                 </TableCell>
-                <TableCell>{character.origin}</TableCell>
+                <TableCell>{character.origin.name}</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>
                   <b>Location</b>
                 </TableCell>
-                <TableCell>{character.location}</TableCell>
+                <TableCell>{character.location.name}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>
+                  <b>Best sentences</b>
+                </TableCell>
+                <TableCell>
+                  {character.bestSentences.map((s) => {
+                    return <p>{s}</p>;
+                  })}
+                  <TextField
+                    value={newBestSentence}
+                    onChange={(e) => setNewBestSentence(e.target.value)}
+                  ></TextField>
+                </TableCell>
               </TableRow>
             </TableBody>
           </Table>
@@ -82,14 +115,19 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
           >
             Back
           </Button>
-          <Button
-            variant="contained"
-            sx={{ mt: 2 }}
-            color="primary"
-            onClick={() => onSave(character)}
-          >
-            Save
-          </Button>
+          <Tooltip title={saveStatus.reason}>
+            <span>
+              <Button
+                disabled={saveStatus.disabled}
+                variant="contained"
+                sx={{ mt: 2 }}
+                color="primary"
+                onClick={handleOnSave}
+              >
+                Save
+              </Button>
+            </span>
+          </Tooltip>
         </Box>
       </Container>
     );

@@ -1,9 +1,10 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import * as api from './api';
-import { Character } from './character.vm';
-import { mapCharacterFromApiToVm, mapCharacterFromVmToApi } from './character.mappers';
 import { CharacterComponent } from './character.component';
+import { mapCharacterFromApiToVm } from './character.mappers';
+import { Character } from './character.vm';
+import { linkRoutes } from 'core/router';
 
 export const CharacterContainer: React.FunctionComponent = (props) => {
   const [character, setCharacter] = React.useState<Character>();
@@ -12,7 +13,6 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
 
   const handleLoadCharacter = async () => {
     const apiCharacter = await api.getCharacter(Number(id));
-    console.log(apiCharacter)
     setCharacter(mapCharacterFromApiToVm(apiCharacter));
   };
 
@@ -23,10 +23,11 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
   }, []);
 
   const handleSave = async (character: Character) => {
-    const apiCharacter = mapCharacterFromVmToApi(character);
-    const success = await api.saveCharacter(apiCharacter);
+    const success = await api.saveCharacter(character);
     if (success) {
-      navigate(-1);
+      navigate(linkRoutes.characterDetail(character.id.toString()), {
+        replace: true,
+      });
     } else {
       alert('Error on save character');
     }

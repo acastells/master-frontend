@@ -38,7 +38,7 @@ export const CharacterCard: React.FunctionComponent<Props> = (props) => {
               {character.status} - {character.species}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {character.location}
+              {character.location.name}
             </Typography>
           </CardContent>
         </Box>
