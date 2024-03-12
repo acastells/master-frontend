@@ -5,13 +5,13 @@ import {
   TableBody,
   TableCell,
   TableRow,
-  TextField,
   Tooltip,
 } from '@mui/material';
 import Button from '@mui/material/Button';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Character } from './character.vm';
+import { BestSentencesComponent } from './components/bestSentences.component';
 
 interface Props {
   character: Character;
@@ -21,21 +21,24 @@ interface Props {
 export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
   const { character, onSave } = props;
   const navigate = useNavigate();
+  const [bestSentences, setBestSentences] = React.useState([]);
+
+  React.useEffect(() => {
+    if (character) {
+      setBestSentences(character.bestSentences);
+    }
+  }, [character]);
 
   const [saveStatus, setSaveStatus] = React.useState({
     disabled: process.env.API_ENDPOINT !== 'json_server',
     reason:
       process.env.API_ENDPOINT !== 'json_server'
-        ? "Can not save on public API. Change endpoint to json server."
+        ? 'Can not save on public API. Change endpoint to json server.'
         : '',
   });
 
-  const [newBestSentence, setNewBestSentence] = React.useState('');
-
   const handleOnSave = () => {
-    if (newBestSentence) {
-      character.bestSentences.push(newBestSentence);
-    }
+    character.bestSentences = bestSentences;
     onSave(character);
   };
 
@@ -93,13 +96,10 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
                   <b>Best sentences</b>
                 </TableCell>
                 <TableCell>
-                  {character.bestSentences.map((s) => {
-                    return <p>{s}</p>;
-                  })}
-                  <TextField
-                    value={newBestSentence}
-                    onChange={(e) => setNewBestSentence(e.target.value)}
-                  ></TextField>
+                  <BestSentencesComponent
+                    intialSentences={character.bestSentences}
+                    onSentencesChange={setBestSentences}
+                  />
                 </TableCell>
               </TableRow>
             </TableBody>
