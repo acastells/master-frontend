@@ -1,9 +1,9 @@
-import * as apiModel from './api/character-collection.api-model';
-import * as viewModel from './character-collection.vm';
+import * as apiModel from 'pods/character/api/character.api-model';
+import * as viewModel from 'pods/character/character.vm';
 
 export const mapFromApiToVm = (
-  character: apiModel.CharacterEntityApi
-): viewModel.CharacterEntityVm => ({
+  character: apiModel.Character
+): viewModel.Character => ({
   id: character.id,
   name: character.name,
   status: character.status,
@@ -13,5 +13,6 @@ export const mapFromApiToVm = (
   origin: character.origin.name,
   location: character.location.name,
   image: character.image,
-  episode: character.episode
+  episode: character.episode,
+  bestSentences: character.bestSentences || []
 });

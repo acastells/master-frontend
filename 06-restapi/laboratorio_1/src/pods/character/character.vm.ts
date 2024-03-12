@@ -9,4 +9,5 @@ export interface Character {
   location: string;
   image: string;
   episode: string[];
+  bestSentences: string[];
 }

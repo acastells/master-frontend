@@ -15,6 +15,7 @@ export const mapCharacterFromApiToVm = (
   location: character.location.name,
   image: character.image,
   episode: character.episode,
+  bestSentences: character.bestSentences || []
 });
 
 export const mapCharacterFromVmToApi = (

@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { CharacterEntityApi } from './character-collection.api-model';
+import { Character } from 'pods/character/api';
 
-export const getCharacterCollection = async (): Promise<CharacterEntityApi[]> => {
+export const getCharacterCollection = async (): Promise<Character[]> => {
   let url: string;
   
   switch (process.env.API_ENDPOINT) {

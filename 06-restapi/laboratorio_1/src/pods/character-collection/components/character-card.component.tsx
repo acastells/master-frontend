@@ -5,10 +5,10 @@ import Typography from '@mui/material/Typography';
 import { linkRoutes } from 'core/router';
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CharacterEntityVm } from '../character-collection.vm';
+import { Character } from 'pods/character/character.vm';
 
 interface Props {
-  character: CharacterEntityVm;
+  character: Character;
 }
 
 export const CharacterCard: React.FunctionComponent<Props> = (props) => {
