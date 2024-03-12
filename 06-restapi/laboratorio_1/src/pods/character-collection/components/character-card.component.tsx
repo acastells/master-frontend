@@ -1,11 +1,11 @@
-import { Box, CardActionArea, CardMedia } from '@mui/material';
+import { Box, CardActionArea } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import { linkRoutes } from 'core/router';
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CharacterEntityVm } from '../character-collection.vm';
-import { linkRoutes } from 'core/router';
 
 interface Props {
   character: CharacterEntityVm;
@@ -35,13 +35,10 @@ export const CharacterCard: React.FunctionComponent<Props> = (props) => {
               {character.name}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {character.gender}
+              {character.status} - {character.species}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {character.origin}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {character.species}
+              {character.location}
             </Typography>
           </CardContent>
         </Box>
