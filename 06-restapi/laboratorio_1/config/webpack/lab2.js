@@ -40,7 +40,7 @@ module.exports = merge(base, {
   plugins: [
     new ReactRefreshWebpackPlugin(),
     new Dotenv({
-      path: 'dev.env',
+      path: 'dev.lab2.env',
     }),
   ],
 });

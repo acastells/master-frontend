@@ -1,11 +1,7 @@
 # Usage
 
-Se puede cambiar el enpoint de la API (Ejercicio 1 y Ejercicio 2) en el fichero dev.env con los valores validos de ENDPOINT:
-
-- ENDPOINT=json_server
-- ENDPOINT=public_api
-
-Siempre reiniciar la app al hacer cualquier cambio.
+- npm run start:lab1
+- npm run start:lab2
 
 ## Intro
 
