@@ -1,11 +1,11 @@
 # Usage
 
-Se puede cambiar el enpoint de la API en el fichero dev.env con los valores validos de ENDPOINT:
+Se puede cambiar el enpoint de la API (Ejercicio 1 y Ejercicio 2) en el fichero dev.env con los valores validos de ENDPOINT:
 
 - ENDPOINT=json_server
 - ENDPOINT=public_api
 
-Reiniciar frontend app
+Siempre reiniciar la app al hacer cualquier cambio.
 
 ## Intro
 
