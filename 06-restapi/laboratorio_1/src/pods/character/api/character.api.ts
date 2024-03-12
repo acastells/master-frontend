@@ -1,14 +1,13 @@
 import axios from 'axios';
 import { Character } from './character.api-model';
 
-const url = "https://rickandmortyapi.com/api/character"
-
 export const getCharacter = async (id: number): Promise<Character> => {
+  const url = `${process.env.API_ENDPOINT}/character`;
   const response = await axios.get(`${url}/${id}`);
 
   const character: Character = response.data;
 
-  return character
+  return character;
 };
 
 export const saveCharacter = async (character: Character): Promise<boolean> => {

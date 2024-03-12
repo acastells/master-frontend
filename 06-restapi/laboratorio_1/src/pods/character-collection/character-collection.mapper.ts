@@ -5,5 +5,13 @@ export const mapFromApiToVm = (
   character: apiModel.CharacterEntityApi
 ): viewModel.CharacterEntityVm => ({
   id: character.id,
-  name: character.name
+  name: character.name,
+  status: character.status,
+  species: character.species,
+  type: character.type,
+  gender: character.gender,
+  origin: character.origin.name,
+  location: character.location.name,
+  image: character.image,
+  episode: character.episode
 });
