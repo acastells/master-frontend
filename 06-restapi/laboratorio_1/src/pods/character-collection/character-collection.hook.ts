@@ -26,8 +26,7 @@ export const useCharacterCollection = () => {
         )
       );
     } else {
-      localStorage.setItem('APIOption', 'REST');
-      loadCharacterCollection();
+      throw(`APIOption: ${APIOption} not implemented`)
     }
   };
 
