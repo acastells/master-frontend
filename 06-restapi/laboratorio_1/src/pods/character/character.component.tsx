@@ -22,9 +22,9 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
   }, [character]);
 
   const [saveStatus, _setSaveStatus] = React.useState({
-    disabled: process.env.API_ENDPOINT !== 'json_server',
+    disabled: process.env.API_ENDPOINT === 'public_api',
     reason:
-      process.env.API_ENDPOINT !== 'json_server'
+      process.env.API_ENDPOINT === 'public_api'
         ? 'Can not save on public API. Change endpoint to json server.'
         : '',
   });

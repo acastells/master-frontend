@@ -1,10 +1,13 @@
+import { linkRoutes } from 'core/router';
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as api from './api';
 import { CharacterComponent } from './character.component';
-import { mapCharacterFromApiToVm } from './character.mappers';
+import {
+  mapCharacterFromApiToVm,
+  mapCharacterFromGraphQLToVm,
+} from './character.mappers';
 import { Character } from './character.vm';
-import { linkRoutes } from 'core/router';
 
 export const CharacterContainer: React.FunctionComponent = (props) => {
   const [character, setCharacter] = React.useState<Character>();
@@ -12,8 +15,16 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
   const navigate = useNavigate();
 
   const handleLoadCharacter = async () => {
-    const apiCharacter = await api.getCharacter(Number(id));
-    setCharacter(mapCharacterFromApiToVm(apiCharacter));
+    const APIOption = localStorage.getItem('APIOption');
+    if (APIOption === 'REST') {
+      const apiCharacter = await api.getCharacter(Number(id));
+      setCharacter(mapCharacterFromApiToVm(apiCharacter));
+    } else if (APIOption === 'GraphQL') {
+      const apiCharacter = await api.getCharacterGraphQL(Number(id));
+      setCharacter(mapCharacterFromGraphQLToVm(apiCharacter));
+    } else {
+      throw `APIOption: ${APIOption} not implemented`;
+    }
   };
 
   React.useEffect(() => {

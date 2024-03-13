@@ -1,8 +1,10 @@
 import axios from 'axios';
-import { Character } from './character.api-model';
-import * as vmModel from "../character.vm"
+import { GraphQLClient, gql } from 'graphql-request';
+import * as vmModel from '../character.vm';
+import * as apiModel from './character.api-model';
+import * as graphQLModel from './character.graphql-model';
 
-export const getCharacter = async (id: number): Promise<Character> => {
+export const getCharacter = async (id: number): Promise<apiModel.Character> => {
   let url: string;
 
   switch (process.env.API_ENDPOINT) {
@@ -17,12 +19,58 @@ export const getCharacter = async (id: number): Promise<Character> => {
   }
 
   const response = await axios.get(`${url}/${id}`);
-  const character: Character = response.data;
+  const character: apiModel.Character = response.data;
   return character;
 };
 
-export const saveCharacter = async (character: vmModel.Character): Promise<boolean> => {
+export const saveCharacter = async (
+  character: vmModel.Character
+): Promise<boolean> => {
   const url = `${process.env.JSON_SERVER_ENDPOINT}/character/${character.id}`;
-  await axios.patch(url, character)
-  return true
+  await axios.patch(url, character);
+  return true;
+};
+
+export const getCharacterGraphQL = async (
+  characterId: number
+): Promise<graphQLModel.Character> => {
+  const url = 'https://rickandmortyapi.com/graphql';
+
+  const graphQLClient = new GraphQLClient(url);
+
+  const query = gql`
+    query GetCharacter($characterId: ID!) {
+      character(id: $characterId) {
+        id
+        name
+        status
+        species
+        type
+        gender
+        origin {
+          id
+          name
+        }
+        location {
+          id
+          name
+          type
+          dimension
+        }
+        image
+        created
+      }
+    }
+  `;
+
+  interface CharactersGraphQLResponse {
+    character: graphQLModel.Character;
+  }
+
+  const response = await graphQLClient.request<CharactersGraphQLResponse>(
+    query,
+    { characterId }
+  );
+
+  return response.character;
 };
