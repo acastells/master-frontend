@@ -27,8 +27,13 @@ export const AppLayout: React.FC<Props> = (props) => {
   };
 
   React.useEffect(() => {
-    const value = localStorage.getItem('APIOption');
+    if (process.env.API_ENDPOINT === 'json_server') {
+      setAPIOption('REST');
+      localStorage.setItem('APIOption', 'REST');
+      return;
+    }
 
+    const value = localStorage.getItem('APIOption');
     if (value) {
       setAPIOption(value);
     } else {
@@ -45,29 +50,35 @@ export const AppLayout: React.FC<Props> = (props) => {
             <AccountCircle />
           </IconButton>
 
-          <FormControl
-            sx={{ backgroundColor: '#fff', p: 1, color: 'rgba(0, 0, 0, 0.87)' }}
-          >
-            <RadioGroup
-              row
-              name="controlled-radio-buttons-group"
-              value={APIOption}
-              onChange={handleChange}
+          {process.env.API_ENDPOINT === 'public_api' && (
+            <FormControl
+              sx={{
+                backgroundColor: '#fff',
+                p: 1,
+                color: 'rgba(0, 0, 0, 0.87)',
+              }}
             >
-              <FormControlLabel
-                value="REST"
-                control={<Radio />}
-                label="REST"
-                labelPlacement="top"
-              />
-              <FormControlLabel
-                value="GraphQL"
-                control={<Radio />}
-                label="GraphQL"
-                labelPlacement="top"
-              />
-            </RadioGroup>
-          </FormControl>
+              <RadioGroup
+                row
+                name="controlled-radio-buttons-group"
+                value={APIOption}
+                onChange={handleChange}
+              >
+                <FormControlLabel
+                  value="REST"
+                  control={<Radio />}
+                  label="REST"
+                  labelPlacement="top"
+                />
+                <FormControlLabel
+                  value="GraphQL"
+                  control={<Radio />}
+                  label="GraphQL"
+                  labelPlacement="top"
+                />
+              </RadioGroup>
+            </FormControl>
+          )}
         </Toolbar>
       </AppBar>
       <main className={classes.content}>{children}</main>
