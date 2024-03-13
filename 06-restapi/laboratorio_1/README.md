@@ -6,7 +6,9 @@ Para ejecutar el Ejercicio 1:
 npm run start:lab1
 ```
 
-El endpoint apunta a la API pública de Rick & Morty. No se ejecuta el json server.
+- El endpoint apunta a la API pública de Rick & Morty.
+- No se ejecuta el json server.
+- Tenemos un radio button en la toolbar para cambiar entre REST API y GraphQL
 
 Para ejecutar el Ejercicio 2:
 
@@ -14,7 +16,10 @@ Para ejecutar el Ejercicio 2:
 npm run start:lab2
 ```
 
-Ahora el endpoint apunta a nuestro server json que si se esta ejecutando. Es posible crear y borrar el campo "bestSentences" en la vista de detalle de un personaje. Los personajes estan limitados a los primeros veinte de la API pública.
+- Ahora el endpoint apunta a nuestro server json que si se esta ejecutando.
+- Es posible crear y borrar el campo "bestSentences" en la vista de detalle de un personaje.
+- Los personajes estan limitados a los primeros 20 de la API pública.
+- GraphQL no implementado
 
 ## Enunciado
 
