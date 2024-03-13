@@ -25,9 +25,7 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
   const handleSave = async (character: Character) => {
     const success = await api.saveCharacter(character);
     if (success) {
-      navigate(linkRoutes.characterDetail(character.id.toString()), {
-        replace: true,
-      });
+      navigate(linkRoutes.root);
     } else {
       alert('Error on save character');
     }
