@@ -9,6 +9,7 @@ npm run start:lab1
 - El endpoint apunta a la API pública de Rick & Morty.
 - No se ejecuta el json server.
 - Tenemos un radio button en la toolbar para cambiar entre REST API y GraphQL
+- Paginación implementada cuando se hace scroll en la view de collection. Funciona en REST API y GraphQL
 
 Para ejecutar el Ejercicio 2:
 
