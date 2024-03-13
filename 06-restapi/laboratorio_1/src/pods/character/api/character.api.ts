@@ -34,8 +34,7 @@ export const saveCharacter = async (
 export const getCharacterGraphQL = async (
   characterId: number
 ): Promise<graphQLModel.Character> => {
-  const url = 'https://rickandmortyapi.com/graphql';
-
+  const url = process.env.PUBLIC_GRAPHQL_ENPOINT;
   const graphQLClient = new GraphQLClient(url);
 
   const query = gql`
