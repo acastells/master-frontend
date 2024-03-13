@@ -1,9 +1,24 @@
 # Usage
 
-- npm run start:lab1
-- npm run start:lab2
+Para ejecutar el Ejercicio 1:
 
-## Intro
+```sh
+npm run start:lab1
+```
+
+El endpoint apunta a la API pública de Rick & Morty. No se ejecuta el json server.
+
+Para ejecutar el Ejercicio 2:
+
+```sh
+npm run start:lab2
+```
+
+Ahora el endpoint apunta a nuestro server json que si se esta ejecutando. Es posible crear y borrar el campo "bestSentences" en la vista de detalle de un personaje. Los personajes estan limitados a los primeros veinte de la API pública.
+
+## Enunciado
+
+### Intro
 
 Vamos a consumir una API pública para mostrar datos de la serie Rick & Morty
 
@@ -16,13 +31,13 @@ Tendrás que:
 - Cambiar las escenas, rutas y pods a character-collection y character
 - Actualizar el json-server
 
-## Ejercicio 1
+### Ejercicio 1
 
 - Crear un proyecto en el que vamos a obtener una lista de actores de la API Rest de Rick & Morty, utilizando Axios o Fetch
 
 - Navegando a la página de un character vamos a mostrar el detalle del mismo (segunda llamada a la API Rest).
 
-## Ejercicio 2
+### Ejercicio 2
 
 - Montamos un json-server local (borramos la colección de hotels previa)
 
@@ -37,11 +52,11 @@ Tendrás que:
 
 - El usuario puede editar y guardar el campos bestSentences
 
-## Opcional
+### Opcional
 
 - Implementar la misma aplicación (del ejercicio 1) pero tirando de la API de GraphQL
 
-## Challenge
+### Challenge
 
 - Implementar paginación
 - Implementar busqueda de actores
@@ -50,7 +65,7 @@ Tendrás que:
   - Lugares
   - Episodios
 
-## Recursos
+#### Recursos
 
 - [Boilerplate Rest API](https://github.com/Lemoncode/master-frontend-lemoncode/tree/master/06-rest-api/01-concepts/00-boilerplate)
 - [json-server](https://github.com/typicode/json-server)
