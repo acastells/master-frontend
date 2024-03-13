@@ -4,7 +4,7 @@
   "description": "Rest API lab",
   "main": "index.js",
   "scripts": {
-    "start:lab1": "run-p -l type-check:watch start:dev:lab1 start:server",
+    "start:lab1": "run-p -l type-check:watch start:dev:lab1",
     "start:lab2": "run-p -l type-check:watch start:dev:lab2 start:server",
     "start:dev:lab1": "webpack serve --config ./config/webpack/lab1.js",
     "start:dev:lab2": "webpack serve --config ./config/webpack/lab2.js",
