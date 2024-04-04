@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="font-family: Arial, Helvetica, sans-serif">
+    <h1>IndexedDB</h1>
+    <div id="data"></div>
+    <script type="text/javascript">
+      const request = window.indexedDB.open("testDB", 1);
+      request.onupgradeneeded = function () {
+        const objectStore = request.result.createObjectStore("users", {
+          keyPath: "id",
+        });
+        objectStore.add({
+          id: 1,
+          name: "Bob Answer",
+          hobbies: ["travelling"],
+        });
+        objectStore.add({
+          id: 2,
+          name: "Jane Doe",
+          hobbies: ["tennis"],
+        });
+        objectStore.createIndex("by-name", "name");
+      };
+      request.onsuccess = function () {
+        const transaction = request.result.transaction(["users"], "readonly");
+        const objectStore = transaction.objectStore("users");
+        objectStore.get(1).onsuccess = function () {
+          document.getElementById("data").innerHTML = this.result.name;
+        };
+      };
+      request.onerror = function () {};
+      request.onblocked = function () {};
+    </script>
+  </body>
+</html>
